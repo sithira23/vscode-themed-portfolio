@@ -16,6 +16,7 @@ function App() {
       <GridItem area="tool" marginX={1}>
         <ToolBar />
       </GridItem>
+      <GridItem area="nav-icons"></GridItem>
     </Grid>
   );
 }

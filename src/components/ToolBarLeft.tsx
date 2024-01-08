@@ -17,7 +17,13 @@ const ToolBarLeft = () => {
       <Image marginRight={2} src={VSCodeLogo} boxSize="20px" />
       <Show above="lg">
         {tools.map((tool) => (
-          <Text fontSize="13px" key={tool}>
+          <Text
+            fontSize="13px"
+            marginX="3px"
+            key={tool}
+            userSelect="none"
+            cursor="pointer"
+          >
             {tool}
           </Text>
         ))}
