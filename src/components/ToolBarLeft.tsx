@@ -1,20 +1,11 @@
 import { HStack, Image, Show, Text } from "@chakra-ui/react";
-import VSCodeLogo from "../assets/visual-studio-code-icon.png";
+import VSCodeLogo from "../assets/vscode_icon.svg";
 
 const ToolBarLeft = () => {
-  const tools = [
-    "File",
-    "Edit",
-    "Selection",
-    "View",
-    "Go",
-    "Run",
-    "Terminal",
-    "Help",
-  ];
+  const tools = ["File", "Edit", "View", "Go", "Run", "Terminal", "Help"];
   return (
     <HStack>
-      <Image marginRight={2} src={VSCodeLogo} boxSize="20px" />
+      <Image marginRight={2} marginTop="3px" src={VSCodeLogo} boxSize="20px" />
       <Show above="lg">
         {tools.map((tool) => (
           <Text

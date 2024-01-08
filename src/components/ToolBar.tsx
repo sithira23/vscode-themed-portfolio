@@ -6,7 +6,13 @@ const ToolBar = () => {
   return (
     <HStack justifyContent="space-between">
       <ToolBarLeft />
-      <Text fontSize={{ base: "10px", md: "13px", lg: "13px", xl: "15px" }}>
+      <Text
+        fontSize={{ base: "10px", md: "13px", lg: "13px", xl: "15px" }}
+        transform="translateX(-50%)"
+        position="absolute"
+        left="50%"
+        textAlign={"center"}
+      >
         Kareem Hamouda - Full Stack Developer
       </Text>
       <ToolBarRight />
