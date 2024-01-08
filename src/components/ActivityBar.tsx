@@ -14,7 +14,7 @@ const ActivityBar = () => {
       <Box>
         <ActivityBarIcon Label="Home" Icon={VscFiles} />
         <ActivityBarIcon Label="Projects" Icon={VscDebugAlt} />
-        <ActivityBarIcon Label="Github" Icon={VscGithub} />
+        <ActivityBarIcon Label="GitHub" Icon={VscGithub} />
       </Box>
       <Box>
         <ActivityBarIcon Label="About" Icon={VscAccount} />
