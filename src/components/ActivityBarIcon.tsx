@@ -1,4 +1,10 @@
-import { Tooltip, Icon, useColorModeValue, HStack } from "@chakra-ui/react";
+import {
+  Tooltip,
+  Icon,
+  useColorModeValue,
+  HStack,
+  useBreakpointValue,
+} from "@chakra-ui/react";
 import { IconType } from "react-icons";
 
 interface Props {
@@ -9,6 +15,7 @@ interface Props {
 const ActivityBarIcon = ({ Label, Image }: Props) => {
   const tooltipBgColor = useColorModeValue("gray.200", "gray.700");
   const tooltipTextColor = useColorModeValue("gray.800", "gray.200");
+  const iconSize = useBreakpointValue({ base: "20px", sm: "28px" });
 
   return (
     <Tooltip
@@ -21,7 +28,7 @@ const ActivityBarIcon = ({ Label, Image }: Props) => {
       <HStack width="100%" marginBottom={5}>
         <Icon
           as={Image}
-          boxSize="28px"
+          boxSize={iconSize}
           color="gray.400"
           _hover={{ color: "white" }}
         />

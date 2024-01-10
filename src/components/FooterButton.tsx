@@ -1,5 +1,4 @@
-import { Button, Text } from "@chakra-ui/react";
-
+import { Button, Text, useBreakpointValue } from "@chakra-ui/react";
 import { IconType } from "react-icons";
 
 interface Props {
@@ -8,10 +7,16 @@ interface Props {
 }
 
 const FooterButton = ({ Icon, Content }: Props) => {
+  const iconFontSize = useBreakpointValue({
+    base: "10px",
+    md: "16px",
+  });
+  const textFontSize = useBreakpointValue({ base: "8px", md: "13px" });
+
   return (
     <Button bg="transparent" borderRadius={0} size="xs">
-      <Icon fontSize="16px" />
-      <Text fontSize="13px" marginLeft="4px">
+      <Icon fontSize={iconFontSize} />
+      <Text fontSize={textFontSize} marginLeft="4px">
         {Content}
       </Text>
     </Button>
