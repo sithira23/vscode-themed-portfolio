@@ -1,12 +1,12 @@
-import { Tooltip, IconButton, useColorModeValue } from "@chakra-ui/react";
+import { Tooltip, Icon, useColorModeValue, HStack } from "@chakra-ui/react";
 import { IconType } from "react-icons";
 
 interface Props {
   Label: string;
-  Icon: IconType;
+  Image: IconType;
 }
 
-const ActivityBarIcon = ({ Label, Icon }: Props) => {
+const ActivityBarIcon = ({ Label, Image }: Props) => {
   const tooltipBgColor = useColorModeValue("gray.200", "gray.700");
   const tooltipTextColor = useColorModeValue("gray.800", "gray.200");
 
@@ -18,15 +18,14 @@ const ActivityBarIcon = ({ Label, Icon }: Props) => {
       bg={tooltipBgColor}
       color={tooltipTextColor}
     >
-      <IconButton
-        marginBottom={2}
-        paddingLeft={2}
-        variant=""
-        colorScheme="gray-50"
-        aria-label="Button"
-        fontSize="24px"
-        icon={<Icon />}
-      />
+      <HStack width="100%" marginBottom={5}>
+        <Icon
+          as={Image}
+          boxSize="28px"
+          color="gray.400"
+          _hover={{ color: "white" }}
+        />
+      </HStack>
     </Tooltip>
   );
 };

@@ -10,15 +10,15 @@ import ActivityBarIcon from "./ActivityBarIcon";
 
 const ActivityBar = () => {
   return (
-    <VStack height="inherit" justify="space-between">
+    <VStack height="inherit" justify="space-between" marginTop={2}>
       <Box>
-        <ActivityBarIcon Label="Home" Icon={VscFiles} />
-        <ActivityBarIcon Label="Projects" Icon={VscDebugAlt} />
-        <ActivityBarIcon Label="GitHub" Icon={VscGithub} />
+        <ActivityBarIcon Label="Home" Image={VscFiles} />
+        <ActivityBarIcon Label="Projects" Image={VscDebugAlt} />
+        <ActivityBarIcon Label="GitHub" Image={VscGithub} />
       </Box>
-      <Box>
-        <ActivityBarIcon Label="About" Icon={VscAccount} />
-        <ActivityBarIcon Label="Change Theme" Icon={VscSettingsGear} />
+      <Box marginBottom={2}>
+        <ActivityBarIcon Label="About" Image={VscAccount} />
+        <ActivityBarIcon Label="Change Theme" Image={VscSettingsGear} />
       </Box>
     </VStack>
   );
