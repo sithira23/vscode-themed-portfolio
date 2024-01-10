@@ -1,6 +1,7 @@
 import { Grid, GridItem } from "@chakra-ui/react";
 import ToolBar from "./components/ToolBar";
 import ActivityBar from "./components/ActivityBar";
+import Explorer from "./components/Explorer";
 import Footer from "./components/Footer";
 
 function App() {
@@ -12,7 +13,7 @@ function App() {
       }}
       templateColumns={{
         base: "60px 1fr",
-        lg: "60px 200px 1fr",
+        lg: "70px 250px 1fr",
       }}
       templateRows="auto 1fr auto"
       height="100vh"
@@ -22,6 +23,9 @@ function App() {
       </GridItem>
       <GridItem area="activity" marginTop={2} height="100%">
         <ActivityBar />
+      </GridItem>
+      <GridItem area="explorer" height="100%">
+        <Explorer />
       </GridItem>
       <GridItem area="footer" marginX="2px">
         <Footer />
