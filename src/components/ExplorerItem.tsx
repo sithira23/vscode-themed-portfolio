@@ -7,9 +7,14 @@ interface Props {
 
 const ExplorerItem = ({ Icon, Label }: Props) => {
   return (
-    <HStack width="100%" cursor="pointer" userSelect="none">
-      <Image boxSize={3} src={Icon} />
-      <Text fontSize="13px" color="gray.200" _hover={{ color: "white" }}>
+    <HStack width="100%" height={6} cursor="pointer" userSelect="none">
+      <Image boxSize="14px" src={Icon} />
+      <Text
+        fontSize="14px"
+        width="100%"
+        color="gray.200"
+        _hover={{ color: "white" }}
+      >
         {Label}
       </Text>
     </HStack>

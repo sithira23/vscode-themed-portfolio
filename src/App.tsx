@@ -3,6 +3,7 @@ import ToolBar from "./components/ToolBar";
 import ActivityBar from "./components/ActivityBar";
 import Explorer from "./components/Explorer";
 import Footer from "./components/Footer";
+import Home from "./components/Home";
 
 function App() {
   return (
@@ -29,6 +30,9 @@ function App() {
           <Explorer />
         </GridItem>
       </Show>
+      <GridItem area="main" height="100%">
+        <Home />
+      </GridItem>
       <GridItem area="footer" marginX="2px">
         <Footer />
       </GridItem>

@@ -29,7 +29,7 @@ const Explorer = () => {
           </Text>
         </HStack>
         {isOpen && (
-          <VStack width="100%" paddingLeft={3} marginTop={2}>
+          <VStack width="100%" paddingLeft={3} marginTop={2} gap={0}>
             <ExplorerItem Icon={JSImage} Label="home.js" />
             <ExplorerItem Icon={HTMLImage} Label="about.html" />
             <ExplorerItem Icon={JSONImage} Label="projects.json" />
