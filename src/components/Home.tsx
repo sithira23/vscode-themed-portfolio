@@ -1,4 +1,4 @@
-import { HStack, Image, Text, VStack, Flex } from "@chakra-ui/react";
+import { Image, Text, VStack, Flex } from "@chakra-ui/react";
 import testImage from "../assets/vscode_icon.svg";
 import { IoMdMail } from "react-icons/io";
 import { FaLocationDot } from "react-icons/fa6";
