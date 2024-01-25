@@ -36,10 +36,11 @@ function App() {
           />
         </GridItem>
       </Show>
-      <GridItem area="main" height="100%">
+      <GridItem area="main" height="100%" minWidth={"100%"}>
         <TabsBar selectedTab={selectedPage} onSelectTab={setSelectedPage} />
         <Home />
       </GridItem>
+
       <GridItem area="footer" marginX="2px">
         <Footer />
       </GridItem>

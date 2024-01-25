@@ -22,7 +22,7 @@ const TabsBarItem = ({
       userSelect="none"
       bg={Label === selectedTab ? "gray.800" : "gray.900"}
       onClick={() => onSelectTab(Label)}
-      width="130px"
+      minWidth="130px"
       justifyContent="center"
     >
       <HStack gap={1} alignItems="center">

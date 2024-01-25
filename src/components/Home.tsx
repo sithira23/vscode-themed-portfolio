@@ -1,4 +1,4 @@
-import { HStack, Image, Text, VStack } from "@chakra-ui/react";
+import { HStack, Image, Text, VStack, Flex } from "@chakra-ui/react";
 import testImage from "../assets/vscode_icon.svg";
 import { IoMdMail } from "react-icons/io";
 import { FaLocationDot } from "react-icons/fa6";
@@ -7,12 +7,28 @@ import HomeItem from "./HomeItem";
 
 const Home = () => {
   return (
-    <HStack height="100%" justify="space-around">
-      <VStack alignItems="flex-start" justify="center">
-        <Text fontSize={50} fontWeight="bold">
+    <Flex
+      height="100%"
+      justify="space-around"
+      align="center"
+      direction={{ base: "column-reverse", md: "row" }}
+    >
+      <VStack
+        alignItems="flex-start"
+        justify="center"
+        mb={{ base: "4", md: "0" }}
+      >
+        {" "}
+        {/* Add margin bottom on small screens */}
+        <Text fontSize={{ base: "2xl", md: "4xl" }} fontWeight="bold">
           KAREEM HAMOUDA
         </Text>
-        <Text fontSize={25} fontWeight="bold" color="orange" marginBottom={10}>
+        <Text
+          fontSize={{ base: "lg", md: "xl" }}
+          fontWeight="bold"
+          color="orange"
+          marginBottom={{ base: "4", md: "10" }}
+        >
           Full Stack Developer | Next.js | React.js | Node.js
         </Text>
         <HomeItem Icon={IoMdMail} Label="kareem.e.hamouda@gmail.com" />
@@ -22,7 +38,7 @@ const Home = () => {
         <HomeItem Icon={FaLinkedin} Label="Linkedin" />
       </VStack>
       <Image src={testImage} boxSize="300px" />
-    </HStack>
+    </Flex>
   );
 };
 
