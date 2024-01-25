@@ -4,8 +4,11 @@ import ActivityBar from "./components/ActivityBar";
 import Explorer from "./components/Explorer";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
+import TabsBar from "./components/TabsBar";
+import { useState } from "react";
 
 function App() {
+  const [selectedPage, setSelectedPage] = useState("");
   return (
     <Grid
       templateAreas={{
@@ -31,6 +34,7 @@ function App() {
         </GridItem>
       </Show>
       <GridItem area="main" height="100%">
+        <TabsBar selectedTab={selectedPage} onSelectTab={setSelectedPage} />
         <Home />
       </GridItem>
       <GridItem area="footer" marginX="2px">
