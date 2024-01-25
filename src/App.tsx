@@ -30,7 +30,10 @@ function App() {
       </GridItem>
       <Show above="lg">
         <GridItem area="explorer" height="100%">
-          <Explorer />
+          <Explorer
+            selectedPage={selectedPage}
+            onSelectPage={setSelectedPage}
+          />
         </GridItem>
       </Show>
       <GridItem area="main" height="100%">

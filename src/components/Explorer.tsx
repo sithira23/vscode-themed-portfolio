@@ -7,9 +7,20 @@ import HTMLImage from "../assets/html.webp";
 import JSONImage from "../assets/json.webp";
 import CSSImage from "../assets/css.webp";
 
-const Explorer = () => {
+interface Props {
+  selectedPage: string;
+  onSelectPage: (page: string) => void;
+}
+
+const Explorer = ({ onSelectPage }: Props) => {
   const backgroundColor = useColorModeValue("gray-100", "gray.900");
   const [isOpen, setIsOpen] = useState(true);
+  const pages = [
+    { Label: "home.js", Icon: JSImage, boxSize: "14px" },
+    { Label: "about.html", Icon: HTMLImage, boxSize: "15px" },
+    { Label: "projects.json", Icon: JSONImage, boxSize: "17px" },
+    { Label: "github.css", Icon: CSSImage, boxSize: "15px" },
+  ];
   return (
     <VStack height="inherit" bg={backgroundColor}>
       <HStack width="100%" paddingX={3} paddingTop={2}>
@@ -30,10 +41,15 @@ const Explorer = () => {
         </HStack>
         {isOpen && (
           <VStack width="100%" paddingLeft={3} marginTop={2} gap={0}>
-            <ExplorerItem Icon={JSImage} Label="home.js" />
-            <ExplorerItem Icon={HTMLImage} Label="about.html" />
-            <ExplorerItem Icon={JSONImage} Label="projects.json" />
-            <ExplorerItem Icon={CSSImage} Label="github.css" />
+            {pages.map((page) => (
+              <ExplorerItem
+                key={page.Label}
+                Icon={page.Icon}
+                Label={page.Label}
+                boxSize={page.boxSize}
+                onSelectPage={onSelectPage}
+              />
+            ))}
           </VStack>
         )}
       </Box>
