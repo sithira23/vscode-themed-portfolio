@@ -1,4 +1,4 @@
-import { Grid, GridItem, Show } from "@chakra-ui/react";
+import { Divider, Grid, GridItem, Show } from "@chakra-ui/react";
 import ToolBar from "./components/ToolBar";
 import ActivityBar from "./components/ActivityBar";
 import Explorer from "./components/Explorer";
@@ -22,8 +22,9 @@ function App() {
       templateRows="auto 1fr auto"
       height="100vh"
     >
-      <GridItem area="tool" marginX={2} marginTop={2}>
+      <GridItem area="tool" marginTop={2}>
         <ToolBar />
+        <Divider orientation="horizontal" marginTop={1} />
       </GridItem>
       <GridItem area="activity" marginTop={2} height="100%">
         <ActivityBar />
@@ -42,6 +43,7 @@ function App() {
       </GridItem>
 
       <GridItem area="footer" marginX="2px">
+        <Divider orientation="horizontal" />
         <Footer />
       </GridItem>
     </Grid>

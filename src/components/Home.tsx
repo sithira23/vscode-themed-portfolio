@@ -37,7 +37,7 @@ const Home = () => {
         <HomeItem Icon={FaGithub} Label="GitHub" />
         <HomeItem Icon={FaLinkedin} Label="Linkedin" />
       </VStack>
-      <Image src={testImage} boxSize="300px" />
+      <Image src={testImage} boxSize="300px" borderRadius="50%" />
     </Flex>
   );
 };

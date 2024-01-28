@@ -4,7 +4,7 @@ import ToolBarRight from "./ToolBarRight";
 
 const ToolBar = () => {
   return (
-    <HStack justifyContent="space-between">
+    <HStack justifyContent="space-between" marginX={2}>
       <ToolBarLeft />
       <Text
         fontSize={{ base: "10px", md: "13px", lg: "13px", xl: "15px" }}

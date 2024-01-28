@@ -1,4 +1,4 @@
-import { Box, Divider, HStack } from "@chakra-ui/react";
+import { Box, HStack } from "@chakra-ui/react";
 import {
   VscGitMerge,
   VscError,
@@ -12,7 +12,6 @@ import FooterButton from "./FooterButton";
 const Footer = () => {
   return (
     <Box>
-      <Divider orientation="horizontal" />
       <HStack justifyContent="space-between">
         <Box>
           <FooterButton Icon={VscGitMerge} Content="main" />
