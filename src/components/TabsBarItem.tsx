@@ -1,4 +1,5 @@
 import { HStack, Image, Text } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 
 interface Props {
   Icon: string;
@@ -6,6 +7,7 @@ interface Props {
   boxSize: string;
   selectedTab: string;
   onSelectTab: (tab: string) => void;
+  Link: string;
 }
 
 const TabsBarItem = ({
@@ -14,14 +16,21 @@ const TabsBarItem = ({
   boxSize,
   selectedTab,
   onSelectTab,
+  Link,
 }: Props) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    onSelectTab(Label);
+    navigate(Link);
+  };
   return (
     <HStack
       height={6}
       cursor="pointer"
       userSelect="none"
       bg={Label === selectedTab ? "gray.800" : "gray.900"}
-      onClick={() => onSelectTab(Label)}
+      onClick={handleClick}
       minWidth="130px"
       justifyContent="center"
     >

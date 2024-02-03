@@ -7,6 +7,7 @@ import Home from "./components/Home";
 import TabsBar from "./components/TabsBar";
 import { useState } from "react";
 import About from "./components/About";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
   const [selectedPage, setSelectedPage] = useState("");
@@ -41,8 +42,10 @@ function App() {
       <GridItem area="main" minHeight="100%" minWidth="100%" overflowY="hidden">
         <TabsBar selectedTab={selectedPage} onSelectTab={setSelectedPage} />
         <Box overflowY="auto" height="calc(100% - 40px)">
-          <Home />
-          {/* <About /> */}
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+          </Routes>
         </Box>
       </GridItem>
 

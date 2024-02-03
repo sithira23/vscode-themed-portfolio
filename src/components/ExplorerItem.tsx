@@ -1,13 +1,21 @@
 import { HStack, Image, Text } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 
 interface Props {
   Icon: string;
   Label: string;
   boxSize: string;
+  Link: string;
   onSelectPage: (page: string) => void;
 }
 
-const ExplorerItem = ({ Icon, Label, boxSize, onSelectPage }: Props) => {
+const ExplorerItem = ({ Icon, Label, boxSize, Link, onSelectPage }: Props) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    onSelectPage(Label);
+    navigate(Link);
+  };
   return (
     <HStack
       width="100%"
@@ -15,7 +23,7 @@ const ExplorerItem = ({ Icon, Label, boxSize, onSelectPage }: Props) => {
       cursor="pointer"
       userSelect="none"
       _hover={{ bg: "gray.800" }}
-      onClick={() => onSelectPage(Label)}
+      onClick={handleClick}
     >
       <Image boxSize={boxSize} src={Icon} />
       <Text

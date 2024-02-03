@@ -12,13 +12,21 @@ const ActivityBar = () => {
   return (
     <VStack height="inherit" justify="space-between" marginTop={2}>
       <Box>
-        <ActivityBarIcon Label="Home" Image={VscFiles} />
-        <ActivityBarIcon Label="Projects" Image={VscDebugAlt} />
-        <ActivityBarIcon Label="GitHub" Image={VscGithub} />
+        <ActivityBarIcon Label="Home" Image={VscFiles} Link="/" />
+        <ActivityBarIcon
+          Label="Projects"
+          Image={VscDebugAlt}
+          Link="/projects"
+        />
+        <ActivityBarIcon Label="GitHub" Image={VscGithub} Link="/github" />
       </Box>
       <Box marginBottom={2}>
-        <ActivityBarIcon Label="About" Image={VscAccount} />
-        <ActivityBarIcon Label="Change Theme" Image={VscSettingsGear} />
+        <ActivityBarIcon Label="About" Image={VscAccount} Link="/about" />
+        <ActivityBarIcon
+          Label="Change Theme"
+          Image={VscSettingsGear}
+          Link="/theme"
+        />
       </Box>
     </VStack>
   );

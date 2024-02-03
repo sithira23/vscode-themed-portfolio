@@ -13,10 +13,15 @@ interface Props {
 const TabsBar = ({ selectedTab, onSelectTab }: Props) => {
   const backgroundColor = useColorModeValue("gray-100", "gray.900");
   const tabs = [
-    { Label: "home.js", Icon: JSImage, boxSize: "14px" },
-    { Label: "about.html", Icon: HTMLImage, boxSize: "15px" },
-    { Label: "projects.json", Icon: JSONImage, boxSize: "17px" },
-    { Label: "github.css", Icon: CSSImage, boxSize: "15px" },
+    { Label: "home.js", Icon: JSImage, boxSize: "14px", Link: "/" },
+    { Label: "about.html", Icon: HTMLImage, boxSize: "15px", Link: "/about" },
+    {
+      Label: "projects.json",
+      Icon: JSONImage,
+      boxSize: "17px",
+      Link: "/projects",
+    },
+    { Label: "github.css", Icon: CSSImage, boxSize: "15px", Link: "/github" },
   ];
   return (
     <HStack bg={backgroundColor} gap={"2px"} px={2} overflowX="auto">
@@ -28,6 +33,7 @@ const TabsBar = ({ selectedTab, onSelectTab }: Props) => {
           Label={tab.Label}
           Icon={tab.Icon}
           boxSize={tab.boxSize}
+          Link={tab.Link}
         />
       ))}
     </HStack>
