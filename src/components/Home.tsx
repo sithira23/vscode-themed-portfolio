@@ -51,7 +51,7 @@ const Home = () => {
         />
         <HomeItem
           Icon={FaGraduationCap}
-          Label="Bachelor's Degree in Computer Sciences"
+          Label="Bachelor's Degree in Computer Science"
           Link="https://cis.asu.edu.eg/"
         />
         <HomeItem
