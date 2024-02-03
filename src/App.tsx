@@ -1,4 +1,4 @@
-import { Divider, Grid, GridItem, Show } from "@chakra-ui/react";
+import { Box, Divider, Grid, GridItem, Show } from "@chakra-ui/react";
 import ToolBar from "./components/ToolBar";
 import ActivityBar from "./components/ActivityBar";
 import Explorer from "./components/Explorer";
@@ -6,6 +6,7 @@ import Footer from "./components/Footer";
 import Home from "./components/Home";
 import TabsBar from "./components/TabsBar";
 import { useState } from "react";
+import About from "./components/About";
 
 function App() {
   const [selectedPage, setSelectedPage] = useState("");
@@ -37,9 +38,12 @@ function App() {
           />
         </GridItem>
       </Show>
-      <GridItem area="main" height="100%" minWidth={"100%"}>
+      <GridItem area="main" minHeight="100%" minWidth="100%" overflowY="hidden">
         <TabsBar selectedTab={selectedPage} onSelectTab={setSelectedPage} />
-        <Home />
+        <Box overflowY="auto" height="calc(100% - 40px)">
+          {/* <Home /> */}
+          <About />
+        </Box>
       </GridItem>
 
       <GridItem area="footer" marginX="2px">
