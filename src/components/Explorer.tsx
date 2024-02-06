@@ -6,6 +6,7 @@ import JSImage from "../assets/javascript.webp";
 import HTMLImage from "../assets/html.webp";
 import JSONImage from "../assets/json.webp";
 import CSSImage from "../assets/css.webp";
+import TSImage from "../assets/typescript.webp";
 
 interface Props {
   selectedPage: string;
@@ -25,6 +26,7 @@ const Explorer = ({ onSelectPage }: Props) => {
       Link: "/projects",
     },
     { Label: "github.css", Icon: CSSImage, boxSize: "15px", Link: "/github" },
+    { Label: "contact.ts", Icon: TSImage, boxSize: "15px", Link: "/contact" },
   ];
   return (
     <VStack
