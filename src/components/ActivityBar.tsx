@@ -14,7 +14,7 @@ interface Props {
   onSelectPage: (page: string) => void;
 }
 
-const ActivityBar = ({ onSelectPage }: Props) => {
+const ActivityBar = ({ selectedPage, onSelectPage }: Props) => {
   const topAreaPages = [
     { Label: "Home", Icon: VscFiles, Navigate: "home.js", Link: "/" },
     {
@@ -38,24 +38,26 @@ const ActivityBar = ({ onSelectPage }: Props) => {
   ];
 
   return (
-    <VStack height="inherit" justify="space-between" marginTop={2}>
-      <Box>
+    <VStack height="inherit" justify="space-between" width={"100%"}>
+      <Box width={"100%"}>
         {topAreaPages.map((page) => (
           <ActivityBarIcon
             Label={page.Label}
             Image={page.Icon}
             Navigate={page.Navigate}
             Link={page.Link}
+            selectedPage={selectedPage}
             onSelectPage={onSelectPage}
           />
         ))}
       </Box>
-      <Box marginBottom={2}>
+      <Box marginBottom={2} width={"100%"}>
         <ActivityBarIcon
           Label="About"
           Image={VscAccount}
           Navigate="about.html"
           Link="/about"
+          selectedPage={selectedPage}
           onSelectPage={onSelectPage}
         />
         <ActivityBarIcon
@@ -63,6 +65,7 @@ const ActivityBar = ({ onSelectPage }: Props) => {
           Image={VscSettingsGear}
           Navigate="theme"
           Link="/theme"
+          selectedPage={selectedPage}
           onSelectPage={onSelectPage}
         />
       </Box>

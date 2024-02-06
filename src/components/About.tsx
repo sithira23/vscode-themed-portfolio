@@ -1,8 +1,13 @@
 import { VStack, Text, List, ListItem, HStack, Button } from "@chakra-ui/react";
 import AboutSkill from "./AboutSkill";
 import { FaDownload } from "react-icons/fa6";
+import { useEffect } from "react";
 
-const About = () => {
+interface Props {
+  setPage: (page: string) => void;
+}
+
+const About = ({ setPage }: Props) => {
   const Skills = [
     "JavaScript",
     "TypeScript",
@@ -36,6 +41,10 @@ const About = () => {
     document.body.appendChild(link);
     link.click();
   };
+
+  useEffect(() => {
+    setPage("about.html");
+  }, []);
 
   return (
     <VStack

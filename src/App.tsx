@@ -29,7 +29,7 @@ function App() {
         <ToolBar />
         <Divider orientation="horizontal" marginTop={1} />
       </GridItem>
-      <GridItem area="activity" marginTop={2} height="100%">
+      <GridItem area="activity" height="100%">
         <ActivityBar
           selectedPage={selectedPage}
           onSelectPage={setSelectedPage}
@@ -47,9 +47,15 @@ function App() {
         <TabsBar selectedTab={selectedPage} onSelectTab={setSelectedPage} />
         <Box overflowY="auto" height="calc(100% - 40px)">
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/projects" element={<Projects />} />
+            <Route path="/" element={<Home setPage={setSelectedPage} />} />
+            <Route
+              path="/about"
+              element={<About setPage={setSelectedPage} />}
+            />
+            <Route
+              path="/projects"
+              element={<Projects setPage={setSelectedPage} />}
+            />
           </Routes>
         </Box>
       </GridItem>

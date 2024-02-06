@@ -3,8 +3,17 @@ import Project from "./Project";
 import ProjectGameHub from "../assets/project-gamehub.webp";
 import ProjectVSCodePortfolio from "../assets/project-vscode.webp";
 import ProjectRecipePage from "../assets/project-recipepage.webp";
+import { useEffect } from "react";
 
-const Projects = () => {
+interface Props {
+  setPage: (page: string) => void;
+}
+
+const Projects = ({ setPage }: Props) => {
+  useEffect(() => {
+    setPage("projects.json");
+  }, []);
+
   return (
     <SimpleGrid
       columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}
