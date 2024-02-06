@@ -23,6 +23,7 @@ const Projects = () => {
           "chakra-ui",
           "react-query",
           "axios",
+          "mobile-responsive",
         ]}
         Source="https://github.com/KareemEhab/Game-Hub"
         Demo="https://game-hub-alpha-orcin.vercel.app/"
@@ -31,7 +32,7 @@ const Projects = () => {
         ImageURL={ProjectVSCodePortfolio}
         Title="VSCode Themed Portfolio"
         Description="My personal portfolio with the Visual Studio Code IDE theme."
-        Technologies={["react", "typescript", "chakra-ui"]}
+        Technologies={["react", "typescript", "chakra-ui", "mobile-responsive"]}
         Source="https://github.com/KareemEhab/VSCode-Themed-Portfolio"
         Demo="https://vs-code-themed-portfolio-theta.vercel.app/"
       />
@@ -39,7 +40,7 @@ const Projects = () => {
         ImageURL={ProjectRecipePage}
         Title="Recipe Page"
         Description="A simple recipe page for making an omelette."
-        Technologies={["html", "css"]}
+        Technologies={["html", "css", "mobile-responsive"]}
         Source="https://github.com/KareemEhab/recipe-page-main"
         Demo="https://recipe-page-main-phi.vercel.app/"
       />
