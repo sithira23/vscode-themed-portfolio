@@ -8,24 +8,55 @@ import {
 } from "react-icons/vsc";
 import ActivityBarIcon from "./ActivityBarIcon";
 
-const ActivityBar = () => {
+interface Props {
+  selectedPage: string;
+  onSelectPage: (page: string) => void;
+}
+
+const ActivityBar = ({ onSelectPage }: Props) => {
+  const topAreaPages = [
+    { Label: "Home", Icon: VscFiles, Navigate: "home.js", Link: "/" },
+    {
+      Label: "Projects",
+      Icon: VscDebugAlt,
+      Navigate: "projects.json",
+      Link: "/projects",
+    },
+    {
+      Label: "GitHub",
+      Icon: VscGithub,
+      Navigate: "github.css",
+      Link: "/github",
+    },
+  ];
+
   return (
     <VStack height="inherit" justify="space-between" marginTop={2}>
       <Box>
-        <ActivityBarIcon Label="Home" Image={VscFiles} Link="/" />
-        <ActivityBarIcon
-          Label="Projects"
-          Image={VscDebugAlt}
-          Link="/projects"
-        />
-        <ActivityBarIcon Label="GitHub" Image={VscGithub} Link="/github" />
+        {topAreaPages.map((page) => (
+          <ActivityBarIcon
+            Label={page.Label}
+            Image={page.Icon}
+            Navigate={page.Navigate}
+            Link={page.Link}
+            onSelectPage={onSelectPage}
+          />
+        ))}
       </Box>
       <Box marginBottom={2}>
-        <ActivityBarIcon Label="About" Image={VscAccount} Link="/about" />
+        <ActivityBarIcon
+          Label="About"
+          Image={VscAccount}
+          Navigate="about.html"
+          Link="/about"
+          onSelectPage={onSelectPage}
+        />
         <ActivityBarIcon
           Label="Change Theme"
           Image={VscSettingsGear}
+          Navigate="theme"
           Link="/theme"
+          onSelectPage={onSelectPage}
         />
       </Box>
     </VStack>

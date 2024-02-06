@@ -30,7 +30,10 @@ function App() {
         <Divider orientation="horizontal" marginTop={1} />
       </GridItem>
       <GridItem area="activity" marginTop={2} height="100%">
-        <ActivityBar />
+        <ActivityBar
+          selectedPage={selectedPage}
+          onSelectPage={setSelectedPage}
+        />
       </GridItem>
       <Show above="lg">
         <GridItem area="explorer" height="100%">
