@@ -27,12 +27,19 @@ const TabsBarItem = ({
   return (
     <HStack
       height={6}
-      cursor="pointer"
-      userSelect="none"
-      bg={Label === selectedTab ? "gray.800" : "gray.900"}
-      onClick={handleClick}
       minWidth="130px"
       justifyContent="center"
+      padding={4}
+      bg={Label === selectedTab ? "gray.800" : "gray.900"}
+      borderTopColor={Label === selectedTab ? "gray.400" : "gray.900"}
+      borderRightColor={"gray.800"}
+      borderLeftColor={"gray.800"}
+      borderTopWidth={"1px"}
+      borderLeftWidth={"1px"}
+      borderRightWidth={"1px"}
+      cursor="pointer"
+      userSelect="none"
+      onClick={handleClick}
     >
       <HStack gap={1} alignItems="center">
         <Image boxSize={boxSize} src={Icon} />

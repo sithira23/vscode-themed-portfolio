@@ -24,7 +24,7 @@ const TabsBar = ({ selectedTab, onSelectTab }: Props) => {
     { Label: "github.css", Icon: CSSImage, boxSize: "15px", Link: "/github" },
   ];
   return (
-    <HStack bg={backgroundColor} gap={"2px"} px={2} overflowX="auto">
+    <HStack bg={backgroundColor} gap={0} overflowX="auto">
       {tabs.map((tab) => (
         <TabsBarItem
           key={tab.Label}

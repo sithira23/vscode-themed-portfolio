@@ -27,7 +27,12 @@ const Explorer = ({ onSelectPage }: Props) => {
     { Label: "github.css", Icon: CSSImage, boxSize: "15px", Link: "/github" },
   ];
   return (
-    <VStack height="inherit" bg={backgroundColor}>
+    <VStack
+      height="inherit"
+      bg={backgroundColor}
+      borderRightColor="#393E42"
+      borderRightWidth="1px"
+    >
       <HStack width="100%" paddingX={3} paddingTop={2}>
         <Text>EXPLORER</Text>
       </HStack>
