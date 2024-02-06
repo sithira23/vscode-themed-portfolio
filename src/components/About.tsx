@@ -13,6 +13,7 @@ const About = () => {
     "ExpressJS",
     "ASP.NET",
     "Entity Framework",
+    "MVC",
     "HTML",
     "CSS",
     "Tailwind CSS",
@@ -22,6 +23,9 @@ const About = () => {
     "MySQL",
     "MongoDB",
     "Mongoose",
+    "Problem Solving",
+    "Teaching",
+    "Leading",
   ];
 
   const downloadResume = () => {

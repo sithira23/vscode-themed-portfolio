@@ -31,7 +31,7 @@ const Home = () => {
           color="orange"
           marginBottom={{ base: "4", md: "10" }}
         >
-          Full Stack Developer | Next.js | React.js | Node.js
+          Full Stack Developer | MERN
         </Text>
         <HomeItem
           Icon={IoMdMail}
