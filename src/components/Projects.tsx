@@ -1,4 +1,4 @@
-import { Box, SimpleGrid } from "@chakra-ui/react";
+import { SimpleGrid } from "@chakra-ui/react";
 import Project from "./Project";
 import ProjectGameHub from "../assets/project-gamehub.webp";
 import ProjectVSCodePortfolio from "../assets/project-vscode.webp";
@@ -15,7 +15,7 @@ const Projects = () => {
     >
       <Project
         ImageURL={ProjectGameHub}
-        Title="GameHub"
+        Title="Game Hub"
         Description="A React web application for viewing the latest video games using the rawg.io API."
         Technologies={[
           "react",
