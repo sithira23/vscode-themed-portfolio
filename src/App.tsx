@@ -11,7 +11,7 @@ import { Route, Routes } from "react-router-dom";
 import Projects from "./components/Projects";
 
 function App() {
-  const [selectedPage, setSelectedPage] = useState("");
+  const [selectedPage, setSelectedPage] = useState("home.js");
   return (
     <Grid
       templateAreas={{
