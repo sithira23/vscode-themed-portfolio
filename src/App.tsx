@@ -9,6 +9,7 @@ import { useState } from "react";
 import About from "./components/About";
 import { Route, Routes } from "react-router-dom";
 import Projects from "./components/Projects";
+import Contact from "./components/Contact";
 
 function App() {
   const [selectedPage, setSelectedPage] = useState("home.js");
@@ -55,6 +56,10 @@ function App() {
             <Route
               path="/projects"
               element={<Projects setPage={setSelectedPage} />}
+            />
+            <Route
+              path="/contact"
+              element={<Contact setPage={setSelectedPage} />}
             />
           </Routes>
         </Box>
