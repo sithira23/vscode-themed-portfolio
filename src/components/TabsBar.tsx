@@ -22,8 +22,9 @@ const TabsBar = ({ selectedTab, onSelectTab }: Props) => {
       boxSize: "17px",
       Link: "/projects",
     },
-    { Label: "github.css", Icon: CSSImage, boxSize: "15px", Link: "/github" },
+    //{ Label: "github.css", Icon: CSSImage, boxSize: "15px", Link: "/github" },
     { Label: "contact.ts", Icon: TSImage, boxSize: "15px", Link: "/contact" },
+    { Label: "theme.css", Icon: CSSImage, boxSize: "15px", Link: "/theme" },
   ];
   return (
     <HStack bg={backgroundColor} gap={0} overflowX="auto">

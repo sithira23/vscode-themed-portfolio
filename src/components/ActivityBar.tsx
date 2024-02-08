@@ -2,7 +2,7 @@ import { Box, VStack } from "@chakra-ui/react";
 import {
   VscFiles,
   VscDebugAlt,
-  VscGithub,
+  //VscGithub,
   VscAccount,
   VscSettingsGear,
   VscMail,
@@ -23,12 +23,12 @@ const ActivityBar = ({ selectedPage, onSelectPage }: Props) => {
       Navigate: "projects.json",
       Link: "/projects",
     },
-    {
-      Label: "GitHub",
-      Icon: VscGithub,
-      Navigate: "github.css",
-      Link: "/github",
-    },
+    // {
+    //   Label: "GitHub",
+    //   Icon: VscGithub,
+    //   Navigate: "github.css",
+    //   Link: "/github",
+    // },
     {
       Label: "Contact me",
       Icon: VscMail,
@@ -63,7 +63,7 @@ const ActivityBar = ({ selectedPage, onSelectPage }: Props) => {
         <ActivityBarIcon
           Label="Change Theme"
           Image={VscSettingsGear}
-          Navigate="theme"
+          Navigate="theme.css"
           Link="/theme"
           selectedPage={selectedPage}
           onSelectPage={onSelectPage}
