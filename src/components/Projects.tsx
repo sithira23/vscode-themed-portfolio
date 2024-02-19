@@ -3,6 +3,7 @@ import Project from "./Project";
 import ProjectGameHub from "../assets/project-gamehub.webp";
 import ProjectVSCodePortfolio from "../assets/project-vscode.webp";
 import ProjectRecipePage from "../assets/project-recipepage.webp";
+import ProjectKanbanTaskManager from "../assets/project-kanban-task-management-app.webp";
 import { useEffect } from "react";
 
 interface Props {
@@ -52,6 +53,21 @@ const Projects = ({ setPage }: Props) => {
         Technologies={["html", "css", "mobile-responsive"]}
         Source="https://github.com/KareemEhab/recipe-page-main"
         Demo="https://recipe-page-main-phi.vercel.app/"
+      />
+      <Project
+        ImageURL={ProjectKanbanTaskManager}
+        Title="Kanban Task Management App"
+        Description="A task management app to help you organize and manage your work more easily."
+        Technologies={[
+          "node",
+          "express",
+          "react",
+          "mongodb",
+          "chakra-ui",
+          "mobile-responsive",
+        ]}
+        Source="https://github.com/KareemEhab/kanban-task-management-app"
+        Demo="https://kanban-task-management-app-jet.vercel.app/"
       />
     </SimpleGrid>
   );
