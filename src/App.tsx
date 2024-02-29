@@ -44,7 +44,7 @@ function App() {
           />
         </GridItem>
       </Show>
-      <GridItem area="main">
+      <GridItem area="main" overflowX={"auto"}>
         <TabsBar selectedTab={selectedPage} onSelectTab={setSelectedPage} />
         <Box overflowY="auto" height="calc(100% - 40px)">
           <Routes>
