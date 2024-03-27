@@ -5,6 +5,7 @@ import {
   FaLinkedin,
   FaFacebook,
   FaInstagram,
+  FaWhatsapp,
 } from "react-icons/fa";
 import HomeItem from "./HomeItem";
 
@@ -19,6 +20,11 @@ const ContactDetails = () => {
         Contact Details:
       </Text>
       <HomeItem Icon={FaPhoneAlt} Label="+201151119085" Link="" />
+      <HomeItem
+        Icon={FaWhatsapp}
+        Label="+201151119085"
+        Link="https://wa.me/+201151119085"
+      />
       <HomeItem
         Icon={FaGithub}
         Label="GitHub"
