@@ -34,7 +34,7 @@ const About = ({ setPage }: Props) => {
   ];
 
   const downloadResume = () => {
-    const url = "src/assets/resume.pdf";
+    const url = "/public/resume.pdf";
     const link = document.createElement("a");
     link.href = url;
     link.setAttribute("download", "resume.pdf");
