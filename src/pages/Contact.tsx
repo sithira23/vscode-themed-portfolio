@@ -1,6 +1,6 @@
 import { Flex } from "@chakra-ui/react";
-import ContactDetails from "./ContactDetails";
-import ContactForm from "./ContactForm";
+import ContactDetails from "../components/ContactDetails";
+import ContactForm from "../components/ContactForm";
 import { useEffect } from "react";
 
 interface Props {

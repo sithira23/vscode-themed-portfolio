@@ -1,5 +1,5 @@
 import { VStack, Text, List, ListItem, HStack, Button } from "@chakra-ui/react";
-import AboutSkill from "./AboutSkill";
+import AboutSkill from "../components/AboutSkill";
 import { FaDownload } from "react-icons/fa6";
 import { useEffect } from "react";
 

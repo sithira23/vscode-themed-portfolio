@@ -7,7 +7,7 @@ import { FaUniversity } from "react-icons/fa";
 import { FaGraduationCap } from "react-icons/fa6";
 import { FaFacebook } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
-import HomeItem from "./HomeItem";
+import HomeItem from "../components/HomeItem";
 import { useEffect } from "react";
 
 interface Props {

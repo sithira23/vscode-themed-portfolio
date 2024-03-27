@@ -3,13 +3,13 @@ import ToolBar from "./components/ToolBar";
 import ActivityBar from "./components/ActivityBar";
 import Explorer from "./components/Explorer";
 import Footer from "./components/Footer";
-import Home from "./components/Home";
+import Home from "./pages/Home";
 import TabsBar from "./components/TabsBar";
 import { useState } from "react";
-import About from "./components/About";
+import About from "./pages/About";
 import { Route, Routes } from "react-router-dom";
-import Projects from "./components/Projects";
-import Contact from "./components/Contact";
+import Projects from "./pages/Projects";
+import Contact from "./pages/Contact";
 
 function App() {
   const [selectedPage, setSelectedPage] = useState("home.js");
