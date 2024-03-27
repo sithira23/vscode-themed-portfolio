@@ -4,6 +4,7 @@ import ProjectGameHub from "../assets/project-gamehub.webp";
 import ProjectVSCodePortfolio from "../assets/project-vscode.webp";
 import ProjectRecipePage from "../assets/project-recipepage.webp";
 import ProjectKanbanTaskManager from "../assets/project-kanban-task-management-app.webp";
+import ProjectAudiophile from "../assets/project-audiophile.webp";
 import { useEffect } from "react";
 
 interface Props {
@@ -56,18 +57,38 @@ const Projects = ({ setPage }: Props) => {
       />
       <Project
         ImageURL={ProjectKanbanTaskManager}
-        Title="Kanban Task Management App"
+        Title="Full-stack Kanban Task Management App"
         Description="A task management app to help you organize and manage your work more easily."
         Technologies={[
           "node",
           "express",
           "react",
           "mongodb",
+          "typescript",
           "chakra-ui",
           "mobile-responsive",
         ]}
         Source="https://github.com/KareemEhab/kanban-task-management-app"
         Demo="https://kanban-task-management-app-jet.vercel.app/"
+      />
+      <Project
+        ImageURL={ProjectAudiophile}
+        Title="Full-stack Audiophile Ecommerce Web Application "
+        Description="A task management app to help you organize and manage your work more easily."
+        Technologies={[
+          "node",
+          "express",
+          "react",
+          "mongodb",
+          "typescript",
+          "chakra-ui",
+          "html",
+          "css",
+          "mobile-responsive",
+          "tablet-responsive",
+        ]}
+        Source="https://github.com/KareemEhab/audiophile-ecommerce-webapp"
+        Demo="https://audiophile-ecommerce-webapp.vercel.app/"
       />
     </SimpleGrid>
   );
