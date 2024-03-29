@@ -74,7 +74,7 @@ const Projects = ({ setPage }: Props) => {
       <Project
         ImageURL={ProjectAudiophile}
         Title="Full-stack Audiophile Ecommerce Web Application "
-        Description="A task management app to help you organize and manage your work more easily."
+        Description="An ecommerce web application for electornic audio devices."
         Technologies={[
           "node",
           "express",
