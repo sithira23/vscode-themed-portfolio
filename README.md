@@ -1,30 +1,39 @@
-# React + TypeScript + Vite
+# Kareem Hamouda's Portfolio with the Visual Studio Code theme
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Table of contents
 
-Currently, two official plugins are available:
+- [Overview](#overview)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+- [Author](#author)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Overview
 
-## Expanding the ESLint configuration
+### Screenshot
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+![](./assets/Screenshot.png)
 
-- Configure the top-level `parserOptions` property like this:
+### Links
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+- Live Site URL: (https://vs-code-themed-portfolio-theta.vercel.app/)
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## My process
+
+### Built with
+
+- [Vite](https://vitejs.dev/) Front-end tool
+- [React](https://reactjs.org/) - JS Front-end Library
+- [Typscript](https://www.typescriptlang.org/) - Programming Language
+- [Chakra UI](https://chakra-ui.com/) - CSS Library For styles
+- Semantic HTML5 markup
+- CSS custom properties
+- Flexbox
+- CSS Grid
+
+## Author
+
+- Website - [Kareem Hamouda](https://vs-code-themed-portfolio-theta.vercel.app/)
+- LinkedIn - [@Kareem Hamouda](https://www.linkedin.com/in/kareem-hamouda/)
+- Frontend Mentor = [@KareemEhab](https://www.frontendmentor.io/profile/KareemEhab)
