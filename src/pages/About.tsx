@@ -34,7 +34,7 @@ const About = ({ setPage }: Props) => {
   ];
 
   const downloadResume = () => {
-    const fileId = "1sqYW8zTvBTpvckgnENL-l9KxFtcRqwTy";
+    const fileId = "1XVeUQEAOpZPKW0apAkq6YG4EV7H9Cg17";
     const url = `https://drive.google.com/uc?export=download&id=${fileId}`;
     const link = document.createElement("a");
     link.href = url;
