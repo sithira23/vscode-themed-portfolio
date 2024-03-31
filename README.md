@@ -13,7 +13,7 @@
 
 ### Screenshot
 
-![](./assets/Screenshot.png)
+![](./src/assets/project-vscode.webp)
 
 ### Links
 
