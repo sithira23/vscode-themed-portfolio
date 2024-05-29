@@ -14,6 +14,7 @@ const About = ({ setPage }: Props) => {
     "C#",
     "C++",
     "ReactJS",
+    "NextJS",
     "NodeJS",
     "ExpressJS",
     "ASP.NET",

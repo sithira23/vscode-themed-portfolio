@@ -70,7 +70,7 @@ const Home = ({ setPage }: Props) => {
         />
         <HomeItem
           Icon={FaLinkedin}
-          Label="Linkedin"
+          Label="LinkedIn"
           Link="https://www.linkedin.com/in/kareem-hamouda/"
         />
         <HomeItem
