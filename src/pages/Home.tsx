@@ -81,7 +81,7 @@ const Home = ({ setPage }: Props) => {
         <HomeItem
           Icon={FaInstagram}
           Label="Instagram"
-          Link="https://www.instagram.com/kareem_ehab47/"
+          Link="https://www.instagram.com/kareem.ehabz/"
         />
       </VStack>
       <Image

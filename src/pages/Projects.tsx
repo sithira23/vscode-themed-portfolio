@@ -1,6 +1,7 @@
 import { SimpleGrid } from "@chakra-ui/react";
 import Project from "../components/Project";
 import ProjectGameHub from "../assets/project-gamehub.webp";
+import ProjectEshterely from "../assets/project-eshterely.webp";
 import ProjectVSCodePortfolio from "../assets/project-vscode.webp";
 import ProjectRecipePage from "../assets/project-recipepage.webp";
 import ProjectKanbanTaskManager from "../assets/project-kanban-task-management-app.webp";
@@ -25,19 +26,39 @@ const Projects = ({ setPage }: Props) => {
       maxH={"100%"}
     >
       <Project
-        ImageURL={ProjectGameHub}
-        Title="Game Hub"
-        Description="A React web application for viewing the latest video games using the rawg.io API."
+        ImageURL={ProjectEshterely}
+        Title="Eshterely"
+        Description="A full-stack modern e-commerce platform for high-end audio and visual equipment."
         Technologies={[
           "react",
-          "typescript",
-          "chakra-ui",
-          "react-query",
-          "axios",
-          "mobile-responsive",
+          "javascript",
+          "tailwind",
+          "redux toolkit",
+          "responsive",
+          "node",
+          "express",
+          "mongodb",
         ]}
-        Source="https://github.com/KareemEhab/Game-Hub"
-        Demo="https://game-hub-alpha-orcin.vercel.app/"
+        Source="https://github.com/KareemEhab/Eshterely-Frontend"
+        Demo="https://eshtrely.netlify.app/"
+      />
+      <Project
+        ImageURL={ProjectGameHub}
+        Title="Game Hub"
+        Description="A full-stack e-commerce platform for buying and viewing games"
+        Technologies={[
+          "angular",
+          "typescript",
+          "tailwind",
+          "ngxs",
+          "responsive",
+          "node",
+          "express",
+          "mongodb",
+          "javascript",
+        ]}
+        Source="https://github.com/KareemEhab/game-hub-frontend"
+        Demo="https://game-hub-iti.netlify.app/"
       />
       <Project
         ImageURL={ProjectVSCodePortfolio}
@@ -48,17 +69,9 @@ const Projects = ({ setPage }: Props) => {
         Demo="https://vs-code-themed-portfolio-theta.vercel.app/"
       />
       <Project
-        ImageURL={ProjectRecipePage}
-        Title="Recipe Page"
-        Description="A simple recipe page for making an omelette."
-        Technologies={["html", "css", "mobile-responsive"]}
-        Source="https://github.com/KareemEhab/recipe-page-main"
-        Demo="https://recipe-page-main-phi.vercel.app/"
-      />
-      <Project
         ImageURL={ProjectKanbanTaskManager}
-        Title="Full-stack Kanban Task Management App"
-        Description="A task management app to help you organize and manage your work more easily."
+        Title="Kanban Task Management App"
+        Description="A full-stack task management app to help you organize and manage your work more easily."
         Technologies={[
           "node",
           "express",
@@ -73,8 +86,8 @@ const Projects = ({ setPage }: Props) => {
       />
       <Project
         ImageURL={ProjectAudiophile}
-        Title="Full-stack Audiophile Ecommerce Web Application "
-        Description="An ecommerce web application for electornic audio devices."
+        Title="Audiophile Ecommerce Web Application "
+        Description="A full-stack ecommerce web application for electornic audio devices."
         Technologies={[
           "node",
           "express",
@@ -89,6 +102,14 @@ const Projects = ({ setPage }: Props) => {
         ]}
         Source="https://github.com/KareemEhab/audiophile-ecommerce-webapp"
         Demo="https://audiophile-ecommerce-webapp.vercel.app/"
+      />
+      <Project
+        ImageURL={ProjectRecipePage}
+        Title="Recipe Page"
+        Description="A simple recipe page for making an omelette."
+        Technologies={["html", "css", "mobile-responsive"]}
+        Source="https://github.com/KareemEhab/recipe-page-main"
+        Demo="https://recipe-page-main-phi.vercel.app/"
       />
     </SimpleGrid>
   );

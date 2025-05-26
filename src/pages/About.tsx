@@ -1,4 +1,15 @@
-import { VStack, Text, List, ListItem, HStack, Button } from "@chakra-ui/react";
+import {
+  VStack,
+  Text,
+  List,
+  ListItem,
+  HStack,
+  Button,
+  Grid,
+  GridItem,
+  Box,
+  Heading,
+} from "@chakra-ui/react";
 import AboutSkill from "../components/AboutSkill";
 import { FaDownload } from "react-icons/fa6";
 import { useEffect } from "react";
@@ -8,38 +19,56 @@ interface Props {
 }
 
 const About = ({ setPage }: Props) => {
-  const Skills = [
-    "JavaScript",
-    "TypeScript",
-    "C#",
-    "C++",
-    "ReactJS",
-    "NextJS",
-    "NodeJS",
-    "ExpressJS",
-    "ASP.NET",
-    "Entity Framework",
-    "MVC",
-    "HTML",
-    "CSS",
-    "Tailwind CSS",
-    "Chakra UI",
-    "Bootstrap",
-    "SQL Server",
-    "MySQL",
-    "MongoDB",
-    "Mongoose",
-    "Problem Solving",
-    "Teaching",
-    "Leading",
-  ];
+  const technicalSkills = {
+    "Programming Languages": ["JavaScript", "TypeScript", "C#", "C++"],
+    "Frontend Development": [
+      "React",
+      "Next.js",
+      "Angular",
+      "HTML5",
+      "CSS3",
+      "Bootstrap",
+      "Tailwind",
+      "Chakra UI",
+      "Redux Toolkit",
+    ],
+    "Backend Development": [
+      "Node.js",
+      "Express.js",
+      ".NET",
+      "MongoDB",
+      "Mongoose",
+      "SQL",
+      "MySQL",
+    ],
+    "UI/UX Design": [
+      "Figma",
+      "Adobe Illustrator",
+      "Adobe Photoshop",
+      "Miro",
+      "MockFlow",
+    ],
+    "Tools & Technologies": [
+      "Git",
+      "GitHub",
+      "Agile (Scrum, Jira, Kanban)",
+      "Trello",
+    ],
+    "Soft Skills": [
+      "Presentation",
+      "Communication",
+      "Professional Demeanor",
+      "Leadership",
+      "Mentorship",
+    ],
+  };
 
-  const downloadResume = () => {
-    const fileId = "1XVeUQEAOpZPKW0apAkq6YG4EV7H9Cg17";
+  const downloadCV = () => {
+    const fileId = "1vqkYvwaAUv3WlqJh1cg4PuwS3PFXBjSM";
     const url = `https://drive.google.com/uc?export=download&id=${fileId}`;
     const link = document.createElement("a");
     link.href = url;
-    link.setAttribute("download", "resume.pdf");
+    link.setAttribute("download", "cv.pdf");
     document.body.appendChild(link);
     link.click();
   };
@@ -53,52 +82,91 @@ const About = ({ setPage }: Props) => {
       alignItems="left"
       justify="center"
       padding={{ base: "5", md: "20" }}
+      spacing={8}
     >
-      <Text
-        fontSize={{ base: "2xl", md: "4xl" }}
-        fontWeight="bold"
-        textDecoration="underline"
-      >
-        About me:
-      </Text>
-      <List
-        styleType={{ base: "", md: "disc" }}
-        spacing={10}
-        fontSize={{ base: "lg", md: "xl" }}
-      >
-        <ListItem>
-          I am Kareem Hamouda, an experienced Full-Stack Developer who graduated
-          from the Faculty of Computer and Information Sciences at Ain Shams
-          University in July 2021. Following my graduation, I served as a
-          Reserve Officer in the military, commencing in October 2021 and
-          officially serving from April 2022 until April 2024, achieving the
-          rank of First Lieutenant. Currently, I am a fresh graduate
-          enthusiastically seeking employment as a Full-Stack MERN Stack
-          developer.
-        </ListItem>
-        <ListItem>
-          I have experience in developing, deploying, and maintaining a range of
-          web applications, web APIs, and web services. I'm also skilled in
-          working with different databases and managing servers. Additionally,
-          I've had the opportunity to tutor students, graduates, and military
-          officers on programming with various tools.
-        </ListItem>
-        <ListItem>My skills include:</ListItem>
-      </List>
-      <HStack wrap="wrap" spacing={3}>
-        {Skills.map((skill) => (
-          <AboutSkill key={skill} Label={skill}></AboutSkill>
-        ))}
-      </HStack>
+      <Box>
+        <Heading
+          as="h1"
+          fontSize={{ base: "2xl", md: "4xl" }}
+          fontWeight="bold"
+          color="#0BCEAF"
+          mb={4}
+        >
+          About Me
+        </Heading>
+        <Text fontSize={{ base: "lg", md: "xl" }} mb={6} lineHeight="tall">
+          A Full Stack Developer (MERN) with a degree in Computer Science
+          (Information Systems) from Ain Shams University and 9 months of
+          professional training at Information Technology Institute (ITI) in Web
+          & UI Development.
+        </Text>
+        <Text fontSize={{ base: "lg", md: "xl" }} lineHeight="tall">
+          Experienced in leadership, teaching, and mentoring, having served as a
+          military reserve officer with a background in web development. Skilled
+          in front-end and back-end development, as well as UI/UX design, and
+          can deliver results under pressure. Passionate about building scalable
+          web applications and contributing to innovative projects.
+        </Text>
+      </Box>
+
       <Button
-        marginTop={3}
+        marginTop={6}
         width="200px"
-        background={"#0BCEAF"}
-        onClick={downloadResume}
+        background="#0BCEAF"
+        onClick={downloadCV}
+        _hover={{ background: "#09a88d" }}
+        transition="all 0.3s"
       >
         <FaDownload />
-        <Text marginLeft={1}>Download Résumé</Text>
+        <Text marginLeft={2}>Download CV</Text>
       </Button>
+
+      <Box width="100%">
+        <Heading
+          as="h2"
+          fontSize={{ base: "xl", md: "2xl" }}
+          fontWeight="bold"
+          mb={8}
+          color="#0BCEAF"
+        >
+          Technical Expertise
+        </Heading>
+        <Grid
+          templateColumns={{
+            base: "1fr",
+            md: "repeat(2, 1fr)",
+            lg: "repeat(3, 1fr)",
+          }}
+          gap={8}
+        >
+          {Object.entries(technicalSkills).map(([category, skills]) => (
+            <GridItem
+              key={category}
+              bg="whiteAlpha.50"
+              borderRadius="xl"
+              p={6}
+              boxShadow="sm"
+              _hover={{
+                transform: "translateY(-2px)",
+                boxShadow: "md",
+              }}
+              transition="all 0.3s"
+            >
+              <Text fontWeight="bold" fontSize="lg" color="#0BCEAF" mb={4}>
+                {category}
+              </Text>
+              <VStack align="start" spacing={3}>
+                {skills.map((skill) => (
+                  <HStack key={skill} spacing={3} width="100%">
+                    <Box w="2" h="2" borderRadius="full" bg="#0BCEAF" />
+                    <Text fontSize="md">{skill}</Text>
+                  </HStack>
+                ))}
+              </VStack>
+            </GridItem>
+          ))}
+        </Grid>
+      </Box>
     </VStack>
   );
 };
