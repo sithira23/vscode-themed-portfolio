@@ -13,18 +13,27 @@ const HomeItem = ({ Icon, Label, Link }: Props) => {
 
   const handleClick = () => {
     if (Link === "/contact") navigate(Link);
-    else window.open(Link, "_blank");
+    else if (Link) window.open(Link, "_blank");
   };
 
   return (
     <HStack
+      spacing={3}
       textColor="gray.300"
-      cursor="pointer"
-      _hover={{ textColor: "white" }}
+      cursor={Link ? "pointer" : "default"}
+      transition="all 0.3s"
+      _hover={
+        Link
+          ? {
+              textColor: "#0BCEAF",
+              transform: "translateX(5px)",
+            }
+          : undefined
+      }
       onClick={handleClick}
     >
-      <Icon />
-      <Text>{Label}</Text>
+      <Icon size={20} />
+      <Text fontSize="md">{Label}</Text>
     </HStack>
   );
 };

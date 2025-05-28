@@ -1,22 +1,25 @@
 import {
   VStack,
   Text,
-  List,
-  ListItem,
   HStack,
   Button,
   Grid,
   GridItem,
   Box,
   Heading,
+  keyframes,
 } from "@chakra-ui/react";
-import AboutSkill from "../components/AboutSkill";
 import { FaDownload } from "react-icons/fa6";
 import { useEffect } from "react";
 
 interface Props {
   setPage: (page: string) => void;
 }
+
+const fadeIn = keyframes`
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+`;
 
 const About = ({ setPage }: Props) => {
   const technicalSkills = {
@@ -83,6 +86,7 @@ const About = ({ setPage }: Props) => {
       justify="center"
       padding={{ base: "5", md: "20" }}
       spacing={8}
+      animation={`${fadeIn} 0.5s ease-out`}
     >
       <Box>
         <Heading

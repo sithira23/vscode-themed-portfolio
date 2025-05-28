@@ -1,5 +1,4 @@
-import { Flex } from "@chakra-ui/react";
-import ContactDetails from "../components/ContactDetails";
+import { Box } from "@chakra-ui/react";
 import ContactForm from "../components/ContactForm";
 import { useEffect } from "react";
 
@@ -11,16 +10,11 @@ const Contact = ({ setPage }: Props) => {
   useEffect(() => {
     setPage("contact.ts");
   }, []);
+
   return (
-    <Flex
-      minHeight="100%"
-      justify="space-around"
-      align="center"
-      direction={{ base: "column-reverse", md: "row" }}
-    >
-      <ContactDetails />
+    <Box minHeight="100%" width="100%">
       <ContactForm />
-    </Flex>
+    </Box>
   );
 };
 

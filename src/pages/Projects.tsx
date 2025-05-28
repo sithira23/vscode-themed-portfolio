@@ -1,4 +1,4 @@
-import { SimpleGrid } from "@chakra-ui/react";
+import { SimpleGrid, keyframes } from "@chakra-ui/react";
 import Project from "../components/Project";
 import ProjectGameHub from "../assets/project-gamehub.webp";
 import ProjectEshterely from "../assets/project-eshterely.webp";
@@ -12,6 +12,11 @@ interface Props {
   setPage: (page: string) => void;
 }
 
+const fadeIn = keyframes`
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+`;
+
 const Projects = ({ setPage }: Props) => {
   useEffect(() => {
     setPage("projects.json");
@@ -24,6 +29,7 @@ const Projects = ({ setPage }: Props) => {
       spacing={6}
       minWidth={"100%"}
       maxH={"100%"}
+      animation={`${fadeIn} 0.5s ease-out`}
     >
       <Project
         ImageURL={ProjectEshterely}
