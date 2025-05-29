@@ -55,9 +55,6 @@ const Home = ({ setPage }: Props) => {
         animation={`${fadeIn} 0.5s ease-out`}
       >
         <Box>
-          <Text fontSize={{ base: "sm", md: "md" }} color={accentColor} mb={2}>
-            WELCOME TO MY PORTFOLIO
-          </Text>
           <Text
             fontSize={{ base: "2xl", md: "4xl" }}
             fontWeight="bold"
@@ -94,7 +91,7 @@ const Home = ({ setPage }: Props) => {
               Label="Cairo, Egypt"
               Link="https://www.google.com/maps/place/Cairo,+Cairo+Governorate/@30.0594885,31.2584644,13z"
             />
-            <HomeItem Icon={FaPhoneAlt} Label="+201151119085" Link="" />
+            <HomeItem Icon={FaPhoneAlt} Label="+20 115 111 9085" Link="" />
           </VStack>
         </Box>
 

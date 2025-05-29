@@ -10,14 +10,7 @@ import {
 } from "@chakra-ui/react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
-import {
-  FaPhoneAlt,
-  FaGithub,
-  FaLinkedin,
-  FaFacebook,
-  FaInstagram,
-  FaWhatsapp,
-} from "react-icons/fa";
+import ContactDetails from "./ContactDetails";
 
 interface FormValues {
   name: string;
@@ -37,12 +30,12 @@ const ContactForm = () => {
   };
 
   const validationSchema = Yup.object().shape({
-    name: Yup.string().required("// Name is required"),
+    name: Yup.string().required("Name is required"),
     email: Yup.string()
-      .email("// Invalid email format")
-      .required("// Email is required"),
-    subject: Yup.string().required("// Subject is required"),
-    message: Yup.string().required("// Message is required"),
+      .email("Invalid email format")
+      .required("Email is required"),
+    subject: Yup.string().required("Subject is required"),
+    message: Yup.string().required("Message is required"),
   });
 
   const handleSubmit = (values: FormValues, { resetForm }: any) => {
@@ -71,170 +64,147 @@ const ContactForm = () => {
           handleSubmit,
           errors,
           touched,
-        }) => (
-          <Form>
-            <HStack align="flex-start" spacing={2}>
-              <VStack
-                pr={2}
-                borderRight="1px"
-                borderColor="gray.600"
-                color="gray.500"
-                minW="40px"
-                align="flex-end"
-              >
-                {Array.from(
-                  {
-                    length:
-                      20 +
-                      (errors.name && touched.name ? 1 : 0) +
-                      (errors.email && touched.email ? 1 : 0) +
-                      (errors.subject && touched.subject ? 1 : 0) +
-                      (errors.message && touched.message ? 1 : 0),
-                  },
-                  (_, i) => (
-                    <Text key={i + 1}>{i + 1}</Text>
-                  )
-                )}
-              </VStack>
+        }) => {
+          // Determine which lines have errors
+          const errorLines: Number[] = [];
+          if (errors.name && touched.name) errorLines.push(10);
+          if (errors.email && touched.email) errorLines.push(11);
+          if (errors.subject && touched.subject) errorLines.push(12);
+          if (errors.message && touched.message) errorLines.push(13);
 
-              <VStack align="stretch" width="100%">
-                {/* Contact Details Comments */}
-                <VStack align="stretch" color="#6A9955">
-                  <Text>/**</Text>
-                  <Text pl={2}>* Contact Information:</Text>
-                  <Text pl={2}>* Phone: +201151119085</Text>
-                  <Text pl={2}>* WhatsApp: +201151119085</Text>
-                  <Text pl={2}>* GitHub: github.com/KareemEhab</Text>
-                  <Text pl={2}>* LinkedIn: linkedin.com/in/kareem-hamouda</Text>
-                  <Text pl={2}>* Facebook: facebook.com/kareem.ehab.37</Text>
-                  <Text pl={2}>* Instagram: instagram.com/kareem_ehab47</Text>
-                  <Text>*/</Text>
+          // Calculate total lines needed (base lines + contact details + form fields)
+          const totalLines = 20; // Adjust this based on your actual content
+
+          return (
+            <Form>
+              <HStack align="flex-start" spacing={2}>
+                <VStack
+                  pr={2}
+                  borderRight="1px"
+                  borderColor="gray.600"
+                  color="gray.500"
+                  minW="40px"
+                  align="flex-end"
+                >
+                  {Array.from({ length: totalLines }, (_, i) => (
+                    <HStack key={i + 1} spacing={1}>
+                      {errorLines.includes(i + 1) && (
+                        <Box w="8px" h="8px" bg="red.500" borderRadius="sm" />
+                      )}
+                      <Text>{i + 1}</Text>
+                    </HStack>
+                  ))}
                 </VStack>
 
-                {/* Form Fields */}
-                <Box height="19.5px">
-                  <HStack spacing={2} height="19.5px">
-                    <Text color="#569CD6">const</Text>
-                    <Text color="#9CDCFE">name</Text>
-                    <Text color="#569CD6">=</Text>
-                    <Input
-                      name="name"
-                      value={values.name}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      variant="unstyled"
-                      color="#CE9178"
-                      placeholder='"Your name"'
-                      _placeholder={{ color: "gray.600" }}
-                      display="inline-block"
-                      width="auto"
-                    />
-                  </HStack>
-                  {errors.name && touched.name && (
-                    <Text color="#D16969" fontSize="sm" mt={1}>
-                      {errors.name}
-                    </Text>
-                  )}
-                </Box>
+                <VStack align="stretch" width="100%">
+                  {/* Contact Details Comments */}
+                  <ContactDetails />
 
-                <Box height="19.5px">
-                  <HStack spacing={2} height="19.5px">
-                    <Text color="#569CD6">const</Text>
-                    <Text color="#9CDCFE">email</Text>
-                    <Text color="#569CD6">=</Text>
-                    <Input
-                      name="email"
-                      value={values.email}
+                  {/* Form Fields */}
+                  <Box height="19.5px">
+                    <HStack spacing={2} height="19.5px">
+                      <Text color="#569CD6">const</Text>
+                      <Text color="#9CDCFE">name</Text>
+                      <Text color="#569CD6">=</Text>
+                      <Input
+                        name="name"
+                        value={values.name}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        variant="unstyled"
+                        color="#CE9178"
+                        placeholder='"Your name"'
+                        _placeholder={{ color: "gray.600" }}
+                        display="inline-block"
+                        width="auto"
+                      />
+                    </HStack>
+                  </Box>
+
+                  <Box height="19.5px">
+                    <HStack spacing={2} height="19.5px">
+                      <Text color="#569CD6">const</Text>
+                      <Text color="#9CDCFE">email</Text>
+                      <Text color="#569CD6">=</Text>
+                      <Input
+                        name="email"
+                        value={values.email}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        variant="unstyled"
+                        color="#CE9178"
+                        placeholder='"your.email@example.com"'
+                        _placeholder={{ color: "gray.600" }}
+                        display="inline-block"
+                        width="100%"
+                      />
+                    </HStack>
+                  </Box>
+
+                  <Box height="19.5px">
+                    <HStack spacing={2} height="19.5px">
+                      <Text color="#569CD6">const</Text>
+                      <Text color="#9CDCFE">subject</Text>
+                      <Text color="#569CD6">=</Text>
+                      <Input
+                        name="subject"
+                        value={values.subject}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        variant="unstyled"
+                        color="#CE9178"
+                        placeholder='"Message subject"'
+                        _placeholder={{ color: "gray.600" }}
+                        display="inline-block"
+                        width="auto"
+                        height="19.5px"
+                      />
+                    </HStack>
+                  </Box>
+
+                  <Box>
+                    <HStack spacing={2}>
+                      <Text color="#569CD6">const</Text>
+                      <Text color="#9CDCFE">message</Text>
+                      <Text color="#569CD6">=</Text>
+                    </HStack>
+                    <Textarea
+                      name="message"
+                      value={values.message}
                       onChange={handleChange}
                       onBlur={handleBlur}
                       variant="unstyled"
                       color="#CE9178"
-                      placeholder='"your.email@example.com"'
+                      placeholder='"Your message here..."'
                       _placeholder={{ color: "gray.600" }}
-                      display="inline-block"
+                      minH="32px"
+                      height="32px"
+                      resize="none"
                       width="100%"
+                      overflow="hidden"
+                      onInput={(e) => {
+                        const target = e.target as HTMLTextAreaElement;
+                        target.style.height = "32px";
+                        target.style.height = `${target.scrollHeight}px`;
+                      }}
                     />
-                  </HStack>
-                  {errors.email && touched.email && (
-                    <Text color="#D16969" fontSize="sm" mt={1}>
-                      {errors.email}
-                    </Text>
-                  )}
-                </Box>
+                  </Box>
 
-                <Box height="19.5px">
-                  <HStack spacing={2} height="19.5px">
-                    <Text color="#569CD6">const</Text>
-                    <Text color="#9CDCFE">subject</Text>
-                    <Text color="#569CD6">=</Text>
-                    <Input
-                      name="subject"
-                      value={values.subject}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      variant="unstyled"
-                      color="#CE9178"
-                      placeholder='"Message subject"'
-                      _placeholder={{ color: "gray.600" }}
-                      display="inline-block"
-                      width="auto"
-                      height="19.5px"
-                    />
-                  </HStack>
-                  {errors.subject && touched.subject && (
-                    <Text color="#D16969" fontSize="sm" mt={1}>
-                      {errors.subject}
-                    </Text>
-                  )}
-                </Box>
-
-                <Box>
-                  <HStack spacing={2}>
-                    <Text color="#569CD6">const</Text>
-                    <Text color="#9CDCFE">message</Text>
-                    <Text color="#569CD6">=</Text>
-                  </HStack>
-                  <Textarea
-                    name="message"
-                    value={values.message}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    variant="unstyled"
-                    color="#CE9178"
-                    placeholder='"Your message here..."'
-                    _placeholder={{ color: "gray.600" }}
-                    minH="32px"
-                    height="32px"
-                    resize="none"
-                    width="100%"
-                    overflow="hidden"
-                    onInput={(e) => {
-                      const target = e.target as HTMLTextAreaElement;
-                      target.style.height = "32px";
-                      target.style.height = `${target.scrollHeight}px`;
-                    }}
-                  />
-                  {errors.message && touched.message && (
-                    <Text color="#D16969" fontSize="sm" mt={1}>
-                      {errors.message}
-                    </Text>
-                  )}
-                </Box>
-
-                <Button
-                  type="submit"
-                  bg="#0BCEAF"
-                  color="white"
-                  _hover={{ bg: "#09a88d" }}
-                  alignSelf="flex-start"
-                  mt={4}
-                >
-                  Send Message
-                </Button>
-              </VStack>
-            </HStack>
-          </Form>
-        )}
+                  <Button
+                    type="submit"
+                    bg="#0BCEAF"
+                    color="white"
+                    _hover={{ bg: "#09a88d" }}
+                    alignSelf="flex-start"
+                    mt={4}
+                  >
+                    Send Message
+                  </Button>
+                </VStack>
+              </HStack>
+            </Form>
+          );
+        }}
       </Formik>
     </Box>
   );

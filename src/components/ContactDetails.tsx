@@ -1,4 +1,4 @@
-import { VStack, Text, Box } from "@chakra-ui/react";
+import { VStack, Text, HStack } from "@chakra-ui/react";
 import {
   FaPhoneAlt,
   FaGithub,
@@ -7,53 +7,44 @@ import {
   FaInstagram,
   FaWhatsapp,
 } from "react-icons/fa";
-import HomeItem from "./HomeItem";
 
 const ContactDetails = () => {
   return (
-    <Box
-      width={{ base: "90%", md: "35%" }}
-      bg="gray.800"
-      borderRadius="md"
-      p={6}
-    >
-      <Text
-        fontSize={{ base: "xl", md: "2xl" }}
-        fontWeight="bold"
-        color="#0BCEAF"
-        mb={6}
-      >
-        // Contact Details
-      </Text>
-      <VStack spacing={4} align="flex-start">
-        <HomeItem Icon={FaPhoneAlt} Label="+201151119085" Link="" />
-        <HomeItem
-          Icon={FaWhatsapp}
-          Label="+201151119085"
-          Link="https://wa.me/+201151119085"
-        />
-        <HomeItem
-          Icon={FaGithub}
-          Label="GitHub"
-          Link="https://github.com/KareemEhab"
-        />
-        <HomeItem
-          Icon={FaLinkedin}
-          Label="LinkedIn"
-          Link="https://www.linkedin.com/in/kareem-hamouda/"
-        />
-        <HomeItem
-          Icon={FaFacebook}
-          Label="Facebook"
-          Link="https://www.facebook.com/kareem.ehab.37"
-        />
-        <HomeItem
-          Icon={FaInstagram}
-          Label="Instagram"
-          Link="https://www.instagram.com/kareem_ehab47/"
-        />
-      </VStack>
-    </Box>
+    <VStack align="stretch" color="#6A9955">
+      <Text>/**</Text>
+      <Text pl={2}>* Contact Information:</Text>
+      <HStack pl={2}>
+        <Text>*</Text>
+        <FaPhoneAlt size={14} />
+        <Text>Phone: +20 115 111 9085</Text>
+      </HStack>
+      <HStack pl={2}>
+        <Text>*</Text>
+        <FaWhatsapp size={14} />
+        <Text>WhatsApp: +20 115 111 9085</Text>
+      </HStack>
+      <HStack pl={2}>
+        <Text>*</Text>
+        <FaGithub size={14} />
+        <Text>GitHub: github.com/KareemEhab</Text>
+      </HStack>
+      <HStack pl={2}>
+        <Text>*</Text>
+        <FaLinkedin size={14} />
+        <Text>LinkedIn: linkedin.com/in/kareem-hamouda</Text>
+      </HStack>
+      <HStack pl={2}>
+        <Text>*</Text>
+        <FaFacebook size={14} />
+        <Text>Facebook: facebook.com/kareem.ehab.37</Text>
+      </HStack>
+      <HStack pl={2}>
+        <Text>*</Text>
+        <FaInstagram size={14} />
+        <Text>Instagram: instagram.com/kareem.ehabz</Text>
+      </HStack>
+      <Text>*/</Text>
+    </VStack>
   );
 };
 
