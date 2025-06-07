@@ -30,7 +30,7 @@ const TabsBarItem = ({
       minWidth="130px"
       justifyContent="center"
       padding={4}
-      bg={Label === selectedTab ? "gray.800" : "gray.900"}
+      bg={Label === selectedTab ? "gray.800" : ""}
       borderTopColor={Label === selectedTab ? "gray.400" : "gray.900"}
       borderRightColor={"gray.800"}
       borderLeftColor={"gray.800"}

@@ -1,5 +1,5 @@
 import { Box } from "@chakra-ui/react";
-import ContactForm from "../components/ContactForm";
+import ContactForm from "../components/Contact/ContactForm";
 import { useEffect } from "react";
 
 interface Props {

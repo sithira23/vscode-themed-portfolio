@@ -1,4 +1,4 @@
-import { VStack, Text, HStack } from "@chakra-ui/react";
+import { VStack, Text, HStack, Show } from "@chakra-ui/react";
 import {
   FaPhoneAlt,
   FaGithub,
@@ -31,17 +31,23 @@ const ContactDetails = () => {
       <HStack pl={2}>
         <Text>*</Text>
         <FaLinkedin size={14} />
-        <Text>LinkedIn: linkedin.com/in/kareem-hamouda</Text>
+        <Text>
+          <Show above="sm">LinkedIn: </Show>linkedin.com/in/kareem-hamouda
+        </Text>
       </HStack>
       <HStack pl={2}>
         <Text>*</Text>
         <FaFacebook size={14} />
-        <Text>Facebook: facebook.com/kareem.ehab.37</Text>
+        <Text>
+          <Show above="sm">Facebook: </Show>facebook.com/kareem.ehab.37
+        </Text>
       </HStack>
       <HStack pl={2}>
         <Text>*</Text>
         <FaInstagram size={14} />
-        <Text>Instagram: instagram.com/kareem.ehabz</Text>
+        <Text>
+          <Show above="sm">Instagram: </Show>instagram.com/kareem.ehabz
+        </Text>
       </HStack>
       <Text>*/</Text>
     </VStack>

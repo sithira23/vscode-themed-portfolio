@@ -1,5 +1,5 @@
 import { SimpleGrid, keyframes } from "@chakra-ui/react";
-import Project from "../components/Project";
+import Project from "../components/Projects/Project";
 import ProjectGameHub from "../assets/project-gamehub.webp";
 import ProjectEshterely from "../assets/project-eshterely.webp";
 import ProjectVSCodePortfolio from "../assets/project-vscode.webp";

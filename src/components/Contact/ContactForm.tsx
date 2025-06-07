@@ -85,55 +85,65 @@ const ContactForm = () => {
             <Form>
               <HStack
                 align="flex-start"
-                spacing={2}
-                overflowX={isMobile ? "auto" : "visible"}
+                width="100%"
+                flexDirection={useBreakpointValue({
+                  base: "column",
+                  md: "row",
+                })}
               >
-                <ContactCodeLines
-                  totalLines={totalLines}
-                  errorLines={errorLines}
-                />
-
-                <VStack
-                  align="stretch"
-                  width="100%"
-                  minW={isMobile ? "300px" : "auto"}
+                <HStack
+                  align="flex-start"
+                  spacing={2}
+                  overflowX={isMobile ? "auto" : "visible"}
                 >
-                  {/* Contact Details Comments */}
-                  <ContactDetails />
-
-                  {/* Form Fields */}
-                  <ContactInput
-                    name="name"
-                    value={values.name}
-                    handleChange={handleChange}
-                    handleBlur={handleBlur}
-                    placeholder='"Your name"'
+                  <ContactCodeLines
+                    totalLines={totalLines}
+                    errorLines={errorLines}
                   />
 
-                  <ContactInput
-                    name="email"
-                    value={values.email}
-                    handleChange={handleChange}
-                    handleBlur={handleBlur}
-                    placeholder='"your.email@example.com"'
-                  />
+                  <VStack
+                    align="stretch"
+                    width="100%"
+                    minW={isMobile ? "300px" : "auto"}
+                  >
+                    {/* Contact Details Comments */}
+                    <ContactDetails />
 
-                  <ContactInput
-                    name="subject"
-                    value={values.subject}
-                    handleChange={handleChange}
-                    handleBlur={handleBlur}
-                    placeholder='"Message subject"'
-                  />
+                    {/* Form Fields */}
+                    <ContactInput
+                      name="name"
+                      value={values.name}
+                      handleChange={handleChange}
+                      handleBlur={handleBlur}
+                      placeholder='"Your name"'
+                    />
 
-                  <ContactTextarea
-                    name="message"
-                    value={values.message}
-                    handleChange={handleChange}
-                    handleBlur={handleBlur}
-                    placeholder="'Your message here...'"
-                  />
-                </VStack>
+                    <ContactInput
+                      name="email"
+                      value={values.email}
+                      handleChange={handleChange}
+                      handleBlur={handleBlur}
+                      placeholder='"your.email@example.com"'
+                    />
+
+                    <ContactInput
+                      name="subject"
+                      value={values.subject}
+                      handleChange={handleChange}
+                      handleBlur={handleBlur}
+                      placeholder='"Message subject"'
+                    />
+
+                    <ContactTextarea
+                      name="message"
+                      value={values.message}
+                      handleChange={handleChange}
+                      handleBlur={handleBlur}
+                      placeholder="'Your message here...'"
+                      setMessageLines={setMessageLines}
+                    />
+                  </VStack>
+                </HStack>
                 <Button
                   type="submit"
                   bg="#0BCEAF"

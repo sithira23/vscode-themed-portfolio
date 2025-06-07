@@ -33,7 +33,7 @@ const ContactInput = ({
           placeholder={placeholder}
           _placeholder={{ color: "gray.600" }}
           display="inline-block"
-          width={isMobile ? "150px" : "100%"}
+          width={isMobile ? "200px" : "100%"}
           minW="100px"
         />
       </HStack>

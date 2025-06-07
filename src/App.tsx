@@ -10,6 +10,7 @@ import About from "./pages/About";
 import { Route, Routes } from "react-router-dom";
 import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
+import Theme from "./pages/Theme";
 
 function App() {
   const [selectedPage, setSelectedPage] = useState("home.js");
@@ -60,6 +61,10 @@ function App() {
             <Route
               path="/contact"
               element={<Contact setPage={setSelectedPage} />}
+            />
+            <Route
+              path="/theme"
+              element={<Theme setPage={setSelectedPage} />}
             />
           </Routes>
         </Box>
