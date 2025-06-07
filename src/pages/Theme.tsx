@@ -17,7 +17,7 @@ const Theme = ({ setPage }: Props) => {
 
   return (
     <Box
-      minH="100vh"
+      minH="100%"
       display="flex"
       alignItems="center"
       justifyContent="center"
