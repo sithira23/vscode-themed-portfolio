@@ -8,27 +8,35 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 
+import NightOwl from "../assets/nightowl.webp";
+import VSCode from "../assets/vscode.webp";
+
 const themes = [
   {
     key: "dark",
     name: "VSCode Dark",
-    image:
-      "https://user-images.githubusercontent.com/37961837/279943318-9cf03269-dc15-4961-a7f0-3a379d8e9a90.png",
+    image: VSCode,
     description: "Classic VSCode dark theme.",
   },
   {
     key: "light",
     name: "Night Owl Light",
-    image:
-      "https://user-images.githubusercontent.com/37961837/279943319-6c6740fa-56d5-4a90-9d07-715d17f0cc6d.png",
+    image: NightOwl,
     description: "Night Owl Light: Vibrant and readable theme.",
   },
 ];
 
 const ThemeSwitcher = () => {
   const { setColorMode, colorMode } = useColorMode();
-  const cardBg = useColorModeValue("gray.100", "gray.700");
-  const borderColor = useColorModeValue("gray.300", "gray.600");
+
+  const cardBg = useColorModeValue("rgba(1, 22, 39, 0.8)", "gray.800");
+  const borderColor = useColorModeValue(
+    "rgba(126, 87, 194, 0.3)",
+    "rgba(86, 156, 214, 0.3)"
+  );
+  const activeBorderColor = useColorModeValue("syntax.keyword", "#0BCEAF");
+  const textColor = useColorModeValue("nightOwl.text", "whiteAlpha.900");
+  const descriptionColor = useColorModeValue("gray.400", "gray.300");
 
   return (
     <SimpleGrid
@@ -38,44 +46,64 @@ const ThemeSwitcher = () => {
       maxW="700px"
       mx="auto"
     >
-      {themes.map((theme) => (
-        <Box
-          key={theme.key}
-          bg={cardBg}
-          borderWidth="2px"
-          borderColor={colorMode === theme.key ? "#0BCEAF" : borderColor}
-          borderRadius="lg"
-          boxShadow={colorMode === theme.key ? "0 0 0 2px #0BCEAF" : "md"}
-          p={6}
-          textAlign="center"
-          transition="all 0.2s"
-        >
-          <Image
-            src={theme.image}
-            alt={theme.name}
-            borderRadius="full"
-            boxSize="80px"
-            objectFit="cover"
-            mb={4}
-            mx="auto"
-          />
-          <Text fontWeight="bold" fontSize="xl" mb={2}>
-            {theme.name}
-          </Text>
-          <Text fontSize="sm" color="gray.500" mb={4}>
-            {theme.description}
-          </Text>
-          <Button
-            colorScheme={colorMode === theme.key ? "teal" : "gray"}
-            variant={colorMode === theme.key ? "solid" : "outline"}
-            onClick={() => setColorMode(theme.key)}
-            isDisabled={colorMode === theme.key}
-            width="100%"
+      {themes.map((theme) => {
+        const isActive = colorMode === theme.key;
+        return (
+          <Box
+            key={theme.key}
+            bg={cardBg}
+            borderWidth="2px"
+            borderColor={isActive ? activeBorderColor : borderColor}
+            borderRadius="lg"
+            boxShadow={isActive ? `0 0 0 2px ${activeBorderColor}` : "none"}
+            p={6}
+            textAlign="center"
+            transition="all 0.3s ease"
+            backdropFilter="blur(10px)"
+            _hover={{
+              transform: "translateY(-5px)",
+              boxShadow: `0 4px 6px ${useColorModeValue(
+                "rgba(126, 87, 194, 0.2)",
+                "rgba(86, 156, 214, 0.2)"
+              )}`,
+            }}
           >
-            {colorMode === theme.key ? "Selected" : "Use Theme"}
-          </Button>
-        </Box>
-      ))}
+            <Image
+              src={theme.image}
+              alt={theme.name}
+              boxSize="100px"
+              objectFit="cover"
+              mb={4}
+              mx="auto"
+            />
+            <Text fontWeight="bold" fontSize="xl" mb={2} color={textColor}>
+              {theme.name}
+            </Text>
+            <Text fontSize="sm" color={descriptionColor} mb={4}>
+              {theme.description}
+            </Text>
+            <Button
+              color={isActive ? "white" : activeBorderColor}
+              bg={isActive ? activeBorderColor : "transparent"}
+              border={`1px solid ${activeBorderColor}`}
+              _hover={{
+                bg: isActive
+                  ? activeBorderColor
+                  : useColorModeValue(
+                      "rgba(126, 87, 194, 0.1)",
+                      "rgba(86, 156, 214, 0.1)"
+                    ),
+              }}
+              onClick={() => setColorMode(theme.key)}
+              isDisabled={isActive}
+              width="100%"
+              transition="all 0.2s ease"
+            >
+              {isActive ? "Selected" : "Use Theme"}
+            </Button>
+          </Box>
+        );
+      })}
     </SimpleGrid>
   );
 };

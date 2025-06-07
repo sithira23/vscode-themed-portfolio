@@ -1,4 +1,11 @@
-import { VStack, Image, Text, HStack, Link } from "@chakra-ui/react";
+import {
+  VStack,
+  Image,
+  Text,
+  HStack,
+  Link,
+  useColorModeValue,
+} from "@chakra-ui/react";
 import ProjectTech from "./ProjectTech";
 
 interface Props {
@@ -18,42 +25,76 @@ const Project = ({
   Source,
   Demo,
 }: Props) => {
+  const cardBg = useColorModeValue("rgba(1, 22, 39, 0.8)", "gray.900");
+  const textColor = useColorModeValue("nightOwl.text", "whiteAlpha.900");
+  const secondaryText = useColorModeValue("gray.400", "gray.300");
+  const borderColor = useColorModeValue(
+    "rgba(126, 87, 194, 0.3)",
+    "rgba(86, 156, 214, 0.3)"
+  );
+  const accentColor = useColorModeValue("syntax.keyword", "#0BCEAF");
+  const techBorderColor = useColorModeValue("purple.500", "#0BCEAF");
+
   return (
-    <VStack bg={"gray.900"} borderRadius={"10px"} height={"100%"}>
-      <Image width={"100%"} src={ImageURL} borderTopRadius={"10px"} />
-      <VStack
-        align={"left"}
-        borderRadius={"10px"}
-        width={"100%"}
-        padding={3}
-        paddingX={5}
-        height={"100%"}
-      >
-        <Text fontWeight={"bold"} marginLeft={"3px"}>
+    <VStack
+      bg={cardBg}
+      borderRadius="10px"
+      height="100%"
+      border="1px solid"
+      borderColor={borderColor}
+      transition="all 0.3s ease"
+      _hover={{
+        transform: "translateY(-5px)",
+        boxShadow: useColorModeValue(
+          "0 10px 20px rgba(126, 87, 194, 0.2)",
+          "0 10px 20px rgba(86, 156, 214, 0.2)"
+        ),
+      }}
+    >
+      <Image
+        width="100%"
+        src={ImageURL}
+        borderTopRadius="10px"
+        borderBottom="1px solid"
+        borderBottomColor={borderColor}
+      />
+      <VStack align="left" width="100%" padding={5} height="100%" spacing={3}>
+        <Text fontWeight="bold" fontSize="lg" color={textColor}>
           {Title}
         </Text>
-        <Text marginBottom={2} marginLeft={"3px"}>
+        <Text color={secondaryText} fontSize="sm">
           {Description}
         </Text>
-        <HStack wrap="wrap" marginBottom={2}>
+        <HStack wrap="wrap" spacing={2} marginY={2}>
           {Technologies.map((t) => (
-            <ProjectTech key={t} label={t} borderColor="#ffffff" />
+            <ProjectTech
+              key={t}
+              label={t}
+              borderColor={techBorderColor}
+              textColor={textColor}
+            />
           ))}
         </HStack>
-        <HStack spacing={4} marginBottom={2}>
+        <HStack spacing={4} marginTop="auto">
           <Link
             href={Source}
-            color="blue.500"
+            color={accentColor}
             target="_blank"
             rel="noopener noreferrer"
+            fontSize="sm"
+            fontWeight="semibold"
+            _hover={{ textDecoration: "underline" }}
           >
             Source
           </Link>
           <Link
             href={Demo}
-            color="blue.500"
+            color={accentColor}
             target="_blank"
             rel="noopener noreferrer"
+            fontSize="sm"
+            fontWeight="semibold"
+            _hover={{ textDecoration: "underline" }}
           >
             Demo
           </Link>

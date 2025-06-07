@@ -1,4 +1,4 @@
-import { HStack, Text } from "@chakra-ui/react";
+import { HStack, Text, useColorModeValue } from "@chakra-ui/react";
 import { IconType } from "react-icons";
 import { useNavigate } from "react-router-dom";
 
@@ -11,6 +11,10 @@ interface Props {
 const HomeItem = ({ Icon, Label, Link }: Props) => {
   const navigate = useNavigate();
 
+  // Theme-aware colors
+  const defaultTextColor = useColorModeValue("nightOwl.text", "gray.300");
+  const hoverColor = useColorModeValue("syntax.keyword", "#0BCEAF");
+
   const handleClick = () => {
     if (Link === "/contact") navigate(Link);
     else if (Link) window.open(Link, "_blank");
@@ -19,13 +23,14 @@ const HomeItem = ({ Icon, Label, Link }: Props) => {
   return (
     <HStack
       spacing={3}
-      textColor="gray.300"
+      textColor={defaultTextColor}
+      opacity={Link ? 1 : 0.7}
       cursor={Link ? "pointer" : "default"}
-      transition="all 0.3s"
+      transition="all 0.3s ease-in-out"
       _hover={
         Link
           ? {
-              textColor: "#0BCEAF",
+              textColor: hoverColor,
               transform: "translateX(5px)",
             }
           : undefined
@@ -33,7 +38,9 @@ const HomeItem = ({ Icon, Label, Link }: Props) => {
       onClick={handleClick}
     >
       <Icon size={20} />
-      <Text fontSize="md">{Label}</Text>
+      <Text fontSize="md" fontWeight="medium">
+        {Label}
+      </Text>
     </HStack>
   );
 };

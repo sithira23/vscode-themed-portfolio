@@ -1,4 +1,4 @@
-import { Box, Heading, VStack } from "@chakra-ui/react";
+import { Box, Heading, VStack, useColorModeValue } from "@chakra-ui/react";
 import ThemeSwitcher from "../components/ThemeSwitcher";
 import { useEffect } from "react";
 
@@ -11,6 +11,10 @@ const Theme = ({ setPage }: Props) => {
     setPage("theme.css");
   }, []);
 
+  // Theme-aware colors
+  const headingColor = useColorModeValue("syntax.keyword", "#0BCEAF");
+  const bgColor = useColorModeValue("nightOwl.bg", "gray.800");
+
   return (
     <Box
       minH="100vh"
@@ -18,9 +22,15 @@ const Theme = ({ setPage }: Props) => {
       alignItems="center"
       justifyContent="center"
       px={4}
+      bg={bgColor}
+      transition="background-color 0.3s ease"
     >
       <VStack spacing={8} width="100%">
-        <Heading color="#0BCEAF" fontSize={{ base: "2xl", md: "3xl" }}>
+        <Heading
+          color={headingColor}
+          fontSize={{ base: "2xl", md: "3xl" }}
+          textAlign="center"
+        >
           Pick Your VSCode Theme
         </Heading>
         <ThemeSwitcher />

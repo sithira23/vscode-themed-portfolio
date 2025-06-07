@@ -62,11 +62,11 @@ const ContactForm = () => {
 
   return (
     <Box
-      width="100%"
+      w="full"
       borderRadius="md"
       fontFamily="monospace"
       overflowX="hidden"
-      paddingRight="1rem"
+      pr="1rem"
     >
       <Formik
         initialValues={initialValues}
@@ -74,42 +74,42 @@ const ContactForm = () => {
         onSubmit={handleSubmit}
       >
         {({ values, handleChange, handleBlur, errors, touched }) => {
-          // Determine which lines have errors
-          const errorLines: number[] = [];
-          if (errors.name && touched.name) errorLines.push(10);
-          if (errors.email && touched.email) errorLines.push(11);
-          if (errors.subject && touched.subject) errorLines.push(12);
-          if (errors.message && touched.message) errorLines.push(13);
+          const errorMap: Record<number, string> = {};
+          if (errors.name && touched.name) errorMap[10] = errors.name;
+          if (errors.email && touched.email) errorMap[11] = errors.email;
+          if (errors.subject && touched.subject) errorMap[12] = errors.subject;
+          if (errors.message && touched.message) errorMap[13] = errors.message;
 
           return (
             <Form>
               <HStack
                 align="flex-start"
-                width="100%"
+                w="full"
                 flexDirection={useBreakpointValue({
                   base: "column",
                   md: "row",
                 })}
+                justify={{ md: "space-between" }}
               >
                 <HStack
                   align="flex-start"
                   spacing={2}
+                  w="full"
                   overflowX={isMobile ? "auto" : "visible"}
                 >
                   <ContactCodeLines
                     totalLines={totalLines}
-                    errorLines={errorLines}
+                    errorLines={Object.keys(errorMap).map(Number)}
+                    errorMessages={errorMap}
                   />
 
                   <VStack
                     align="stretch"
-                    width="100%"
+                    w="full"
                     minW={isMobile ? "300px" : "auto"}
                   >
-                    {/* Contact Details Comments */}
                     <ContactDetails />
 
-                    {/* Form Fields */}
                     <ContactInput
                       name="name"
                       value={values.name}
@@ -144,12 +144,14 @@ const ContactForm = () => {
                     />
                   </VStack>
                 </HStack>
+
                 <Button
                   type="submit"
                   bg="#0BCEAF"
                   color="white"
                   _hover={{ bg: "#09a88d" }}
                   mt={4}
+                  ml={4}
                 >
                   Send Message
                 </Button>

@@ -84,7 +84,7 @@ const About = ({ setPage }: Props) => {
     <VStack
       alignItems="left"
       justify="center"
-      padding={{ base: "5", md: "20" }}
+      padding={{ base: "5", md: "10" }}
       spacing={8}
       animation={`${fadeIn} 0.5s ease-out`}
     >

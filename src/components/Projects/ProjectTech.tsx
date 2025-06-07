@@ -3,16 +3,17 @@ import { Box } from "@chakra-ui/react";
 interface Props {
   label: string;
   borderColor: string;
+  textColor?: string;
 }
 
-const ProjectTech = ({ label, borderColor }: Props) => {
+const ProjectTech = ({ label, borderColor, textColor = "white" }: Props) => {
   return (
     <Box
       borderTopLeftRadius="20px"
       borderBottomLeftRadius="20px"
       borderTopRightRadius="20px"
       borderBottomRightRadius="20px"
-      color="white"
+      color={textColor}
       borderColor={borderColor}
       borderWidth="1px"
       padding="2px"

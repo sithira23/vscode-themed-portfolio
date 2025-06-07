@@ -1,4 +1,4 @@
-import { HStack, Image, Text } from "@chakra-ui/react";
+import { HStack, Image, Text, useColorModeValue } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 
 interface Props {
@@ -20,34 +20,47 @@ const TabsBarItem = ({
 }: Props) => {
   const navigate = useNavigate();
 
+  const selectedBg = useColorModeValue("rgba(86, 156, 214, 0.3)", "gray.800");
+  const borderColor = useColorModeValue("gray.600", "gray.900");
+  const selectedBorderColor = useColorModeValue("syntax.keyword", "gray.400");
+  const textColor = useColorModeValue("gray.300", "gray.200");
+  const hoverTextColor = useColorModeValue("nightOwl.text", "white");
+
   const handleClick = () => {
     onSelectTab(Label);
     navigate(Link);
   };
+
+  const isSelected = Label === selectedTab;
+
   return (
     <HStack
       height={6}
       minWidth="130px"
       justifyContent="center"
       padding={4}
-      bg={Label === selectedTab ? "gray.800" : ""}
-      borderTopColor={Label === selectedTab ? "gray.400" : "gray.900"}
-      borderRightColor={"gray.800"}
-      borderLeftColor={"gray.800"}
-      borderTopWidth={"1px"}
-      borderLeftWidth={"1px"}
-      borderRightWidth={"1px"}
+      bg={isSelected ? selectedBg : "transparent"}
+      borderTopColor={isSelected ? selectedBorderColor : borderColor}
+      borderRightColor={borderColor}
+      borderLeftColor={borderColor}
+      borderTopWidth="1px"
+      borderLeftWidth="1px"
+      borderRightWidth="1px"
       cursor="pointer"
       userSelect="none"
       onClick={handleClick}
+      _hover={{
+        bg: useColorModeValue("rgba(1, 22, 39, 0.5)", "gray.700"),
+      }}
     >
       <HStack gap={1} alignItems="center">
         <Image boxSize={boxSize} src={Icon} />
         <Text
           fontSize="14px"
           width="100%"
-          color="gray.200"
-          _hover={{ color: "white" }}
+          color={textColor}
+          _hover={{ color: hoverTextColor }}
+          fontWeight={isSelected ? "medium" : "normal"}
         >
           {Label}
         </Text>
