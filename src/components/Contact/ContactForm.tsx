@@ -13,6 +13,7 @@ import ContactDetails from "./ContactDetails";
 import ContactCodeLines from "./ContactCodeLines";
 import ContactInput from "./ContactInput";
 import ContactTextarea from "./ContactTextarea";
+import emailjs from "emailjs-com";
 
 interface FormValues {
   name: string;
@@ -35,25 +36,48 @@ const ContactForm = () => {
   };
 
   const validationSchema = Yup.object().shape({
-    name: Yup.string().required("Name is required"),
+    name: Yup.string().required("Error: Name is required"),
     email: Yup.string()
-      .email("Invalid email format")
-      .required("Email is required"),
-    subject: Yup.string().required("Subject is required"),
-    message: Yup.string().required("Message is required"),
+      .email("Error: Invalid email format")
+      .required("Error: Email is required"),
+    subject: Yup.string().required("Error: Subject is required"),
+    message: Yup.string().required("Error: Message is required"),
   });
 
-  const handleSubmit = (values: FormValues, { resetForm }: any) => {
-    console.log(values);
-    toast({
-      title: "Message Sent",
-      description: "Your message has been sent successfully!",
-      status: "success",
-      duration: 3000,
-      isClosable: true,
-    });
-    resetForm();
-    setMessageLines(1);
+  const handleSubmit = async (values: FormValues, { resetForm }: any) => {
+    try {
+      const result = await emailjs.send(
+        "service_qd1yz1q",
+        "template_fnwi8n8",
+        {
+          from_name: values.name,
+          from_email: values.email,
+          subject: values.subject,
+          message: values.message,
+        },
+        "gUwncblHHC3oSi7Hd"
+      );
+
+      toast({
+        title: "Message Sent",
+        description: "Your message has been sent successfully!",
+        status: "success",
+        duration: 3000,
+        isClosable: true,
+      });
+
+      resetForm();
+      setMessageLines(1);
+      console.log(result);
+    } catch (error) {
+      toast({
+        title: "Error Sending Message",
+        description: "There was a problem sending your message.",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+      });
+    }
   };
 
   useEffect(() => {
@@ -139,7 +163,7 @@ const ContactForm = () => {
                       value={values.message}
                       handleChange={handleChange}
                       handleBlur={handleBlur}
-                      placeholder="'Your message here...'"
+                      placeholder='"Your message here..."'
                       setMessageLines={setMessageLines}
                     />
                   </VStack>

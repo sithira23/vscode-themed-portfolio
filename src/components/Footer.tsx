@@ -26,7 +26,7 @@ const Footer = () => {
         <Box>
           <FooterButton
             Icon={VscJson}
-            Content="TypeScript JSX"
+            Content="JavaScript JSX"
             TooltipLabel=""
           />
           <FooterButton Icon={VscCheck} Content="Prettier" TooltipLabel="" />
