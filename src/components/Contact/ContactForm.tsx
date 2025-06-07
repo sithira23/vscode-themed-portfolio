@@ -57,18 +57,17 @@ const ContactForm = () => {
         },
         "gUwncblHHC3oSi7Hd"
       );
-
-      toast({
-        title: "Message Sent",
-        description: "Your message has been sent successfully!",
-        status: "success",
-        duration: 3000,
-        isClosable: true,
-      });
+      if (result.status === 200)
+        toast({
+          title: "Message Sent",
+          description: "Your message has been sent successfully!",
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+        });
 
       resetForm();
       setMessageLines(1);
-      console.log(result);
     } catch (error) {
       toast({
         title: "Error Sending Message",

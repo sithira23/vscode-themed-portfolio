@@ -14,15 +14,15 @@ import VSCode from "../assets/vscode.webp";
 const themes = [
   {
     key: "dark",
-    name: "VSCode Dark",
+    name: "VSCode",
     image: VSCode,
-    description: "Classic VSCode dark theme.",
+    description: "Classic VSCode theme.",
   },
   {
     key: "light",
-    name: "Night Owl Light",
+    name: "Night Owl",
     image: NightOwl,
-    description: "Night Owl Light: Vibrant and readable theme.",
+    description: "Vibrant and readable theme.",
   },
 ];
 

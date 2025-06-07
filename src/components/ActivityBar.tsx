@@ -48,6 +48,7 @@ const ActivityBar = ({ selectedPage, onSelectPage }: Props) => {
             Link={page.Link}
             selectedPage={selectedPage}
             onSelectPage={onSelectPage}
+            key={page.Label}
           />
         ))}
       </Box>
