@@ -8,8 +8,8 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 
-import NightOwl from "../assets/nightowl.webp";
-import VSCode from "../assets/vscode.webp";
+import NightOwl from "/assets/nightowl.webp";
+import VSCode from "/assets/vscode.webp";
 
 const themes = [
   {

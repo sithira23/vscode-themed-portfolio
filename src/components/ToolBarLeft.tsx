@@ -1,5 +1,5 @@
 import { HStack, Image, Show, Text } from "@chakra-ui/react";
-import VSCodeLogo from "../assets/vscode_icon.svg";
+import VSCodeLogo from "/assets/vscode_icon.svg";
 
 const ToolBarLeft = () => {
   const tools = ["File", "Edit", "View", "Go", "Run", "Terminal", "Help"];

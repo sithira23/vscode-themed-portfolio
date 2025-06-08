@@ -26,7 +26,7 @@ const ContactInput = ({
   }, [value, placeholder]);
 
   return (
-    <Box height="19.5px" position="relative">
+    <Box height="19.5px" position="relative" maxW="100%">
       {/* Hidden span to measure text width */}
       <Box
         as="span"

@@ -11,6 +11,7 @@ import {
 } from "@chakra-ui/react";
 import { FaDownload } from "react-icons/fa6";
 import { useEffect } from "react";
+import { aboutMe, technicalSkills } from "../../public/data/about";
 
 interface Props {
   setPage: (page: string) => void;
@@ -21,59 +22,22 @@ const fadeIn = keyframes`
   to { opacity: 1; transform: translateY(0); }
 `;
 
-const About = ({ setPage }: Props) => {
-  const technicalSkills = {
-    "Programming Languages": ["JavaScript", "TypeScript", "C#", "C++"],
-    "Frontend Development": [
-      "React",
-      "Next.js",
-      "Angular",
-      "HTML5",
-      "CSS3",
-      "Bootstrap",
-      "Tailwind",
-      "Chakra UI",
-      "Redux Toolkit",
-    ],
-    "Backend Development": [
-      "Node.js",
-      "Express.js",
-      ".NET",
-      "MongoDB",
-      "Mongoose",
-      "SQL",
-      "MySQL",
-    ],
-    "UI/UX Design": [
-      "Figma",
-      "Adobe Illustrator",
-      "Adobe Photoshop",
-      "Miro",
-      "MockFlow",
-    ],
-    "Tools & Technologies": [
-      "Git",
-      "GitHub",
-      "Agile (Scrum, Jira, Kanban)",
-      "Trello",
-    ],
-    "Soft Skills": [
-      "Presentation",
-      "Communication",
-      "Professional Demeanor",
-      "Leadership",
-      "Mentorship",
-    ],
-  };
+function extractDriveFileId(url: string): string | null {
+  const match = url.match(/\/d\/(.*?)(\/|$)/);
+  return match ? match[1] : null;
+}
 
+const About = ({ setPage }: Props) => {
   const downloadCV = () => {
-    const fileId = "1vqkYvwaAUv3WlqJh1cg4PuwS3PFXBjSM";
+    const fileId = extractDriveFileId(aboutMe.cvDriveLink);
+    if (!fileId) return;
     const url = `https://drive.google.com/uc?export=download&id=${fileId}`;
     const link = document.createElement("a");
     link.href = url;
     link.setAttribute("download", "cv.pdf");
     document.body.appendChild(link);
     link.click();
+    document.body.removeChild(link);
   };
 
   useEffect(() => {
@@ -98,19 +62,16 @@ const About = ({ setPage }: Props) => {
         >
           About Me
         </Heading>
-        <Text fontSize={{ base: "lg", md: "xl" }} mb={6} lineHeight="tall">
-          A Full Stack Developer (MERN) with a degree in Computer Science
-          (Information Systems) from Ain Shams University and 9 months of
-          professional training at Information Technology Institute (ITI) in Web
-          & UI Development.
-        </Text>
-        <Text fontSize={{ base: "lg", md: "xl" }} lineHeight="tall">
-          Experienced in leadership, teaching, and mentoring, having served as a
-          military reserve officer with a background in web development. Skilled
-          in front-end and back-end development, as well as UI/UX design, and
-          can deliver results under pressure. Passionate about building scalable
-          web applications and contributing to innovative projects.
-        </Text>
+        {aboutMe.description.map((text, idx) => (
+          <Text
+            key={idx}
+            fontSize={{ base: "lg", md: "xl" }}
+            mb={idx === 0 ? 6 : 0}
+            lineHeight="tall"
+          >
+            {text}
+          </Text>
+        ))}
       </Box>
 
       <Button

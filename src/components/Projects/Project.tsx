@@ -13,8 +13,8 @@ interface Props {
   Title: string;
   Description: string;
   Technologies: string[];
-  Source: string;
-  Demo: string;
+  Source?: string;
+  Demo?: string;
 }
 
 const Project = ({
@@ -75,30 +75,37 @@ const Project = ({
             />
           ))}
         </HStack>
-        <HStack spacing={4} marginTop="auto">
-          <Link
-            href={Source}
-            color={accentColor}
-            target="_blank"
-            rel="noopener noreferrer"
-            fontSize="sm"
-            fontWeight="semibold"
-            _hover={{ textDecoration: "underline" }}
-          >
-            Source
-          </Link>
-          <Link
-            href={Demo}
-            color={accentColor}
-            target="_blank"
-            rel="noopener noreferrer"
-            fontSize="sm"
-            fontWeight="semibold"
-            _hover={{ textDecoration: "underline" }}
-          >
-            Demo
-          </Link>
-        </HStack>
+
+        {(Source || Demo) && (
+          <HStack spacing={4} marginTop="auto">
+            {Source && (
+              <Link
+                href={Source}
+                color={accentColor}
+                target="_blank"
+                rel="noopener noreferrer"
+                fontSize="sm"
+                fontWeight="semibold"
+                _hover={{ textDecoration: "underline" }}
+              >
+                Source
+              </Link>
+            )}
+            {Demo && (
+              <Link
+                href={Demo}
+                color={accentColor}
+                target="_blank"
+                rel="noopener noreferrer"
+                fontSize="sm"
+                fontWeight="semibold"
+                _hover={{ textDecoration: "underline" }}
+              >
+                Demo
+              </Link>
+            )}
+          </HStack>
+        )}
       </VStack>
     </VStack>
   );
