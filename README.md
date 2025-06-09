@@ -16,7 +16,7 @@
 
 ### Screenshot
 
-![](/assets/project-vscode.webp)
+![](./public/assets/project-vscode.webp)
 
 ### Links
 
