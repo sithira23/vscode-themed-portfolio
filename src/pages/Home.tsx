@@ -62,19 +62,19 @@ const Home = ({ setPage }: Props) => {
       minHeight="100%"
       justify="space-around"
       align="center"
-      direction={{ base: "column-reverse", md: "row" }}
+      direction={{ base: "column-reverse", lg: "row" }}
       px={{ base: 4, md: 8 }}
       py={{ base: 8, md: 0 }}
       gap={{ base: 8, md: 16 }}
     >
       <VStack
-        alignItems="flex-start"
+        alignItems={{ base: "center", lg: "flex-start" }}
         justify="center"
         spacing={4}
         animation={`${fadeIn} 0.5s ease-out`}
         color={textColor}
       >
-        <Box>
+        <Box textAlign={{ base: "center", lg: "left" }}>
           <Text
             fontSize={{ base: "2xl", md: "4xl" }}
             fontWeight="bold"
@@ -109,7 +109,8 @@ const Home = ({ setPage }: Props) => {
         />
         <Image
           src={homeData.myImage}
-          boxSize={{ base: "250px", md: "425px" }}
+          width={{ base: "250px", sm: "300px", md: "400px", lg: "425px" }}
+          height="auto"
           borderRadius="50%"
           border="4px solid"
           borderColor={accentColor}
