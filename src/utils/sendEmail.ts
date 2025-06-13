@@ -1,4 +1,4 @@
-import emailjs from "emailjs-com";
+import { receiver_email } from "../../public/data/contact";
 
 export const sendEmail = async (values: {
   name: string;
@@ -6,15 +6,17 @@ export const sendEmail = async (values: {
   subject: string;
   message: string;
 }) => {
-  return await emailjs.send(
-    "service_qd1yz1q",
-    "template_fnwi8n8",
-    {
-      name: values.name,
-      email: values.email,
-      subject: values.subject,
-      message: values.message,
-    },
-    "gUwncblHHC3oSi7Hd"
-  );
+  const { name, email, subject, message } = values;
+
+  return await fetch("https://email-sender-six-phi.vercel.app/send", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      name,
+      email,
+      subject,
+      message,
+      receiver_email,
+    }),
+  });
 };
