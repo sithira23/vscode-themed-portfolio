@@ -65,7 +65,9 @@ const ContactInput = ({
             "::placeholder": {
               color: "gray.600",
             },
-            WebkitTextFillColor: "#CE9178",
+            ":not(:placeholder-shown)": {
+              WebkitTextFillColor: "#CE9178",
+            },
             caretColor: "#CE9178",
           }}
         />
