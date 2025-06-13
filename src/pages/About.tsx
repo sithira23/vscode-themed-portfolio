@@ -10,7 +10,7 @@ import {
   keyframes,
 } from "@chakra-ui/react";
 import { FaDownload } from "react-icons/fa6";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { aboutMe, technicalSkills } from "../../public/data/about";
 
 interface Props {
@@ -28,7 +28,10 @@ function extractDriveFileId(url: string): string | null {
 }
 
 const About = ({ setPage }: Props) => {
+  const [loading, setLoading] = useState(false);
+
   const downloadCV = () => {
+    setLoading(true);
     const fileId = extractDriveFileId(aboutMe.cvDriveLink);
     if (!fileId) return;
     const url = `https://drive.google.com/uc?export=download&id=${fileId}`;
@@ -38,6 +41,7 @@ const About = ({ setPage }: Props) => {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -80,7 +84,10 @@ const About = ({ setPage }: Props) => {
         background="#0BCEAF"
         onClick={downloadCV}
         _hover={{ background: "#09a88d" }}
-        transition="all 0.3s"
+        _active={{ transform: "scale(0.96)", background: "#079f84" }}
+        transition="all 0.2s ease"
+        isLoading={loading}
+        loadingText="Downloading..."
       >
         <FaDownload />
         <Text marginLeft={2}>Download CV</Text>

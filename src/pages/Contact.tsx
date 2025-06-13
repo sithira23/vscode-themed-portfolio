@@ -28,6 +28,7 @@ const Contact = ({ setPage }: Props) => {
   const [totalLines, setTotalLines] = useState(14);
   const [messageLines, setMessageLines] = useState(1);
   const isMobile = useBreakpointValue({ base: true, md: false });
+  const [loading, setLoading] = useState(false);
 
   const initialValues: FormValues = {
     name: "",
@@ -37,6 +38,7 @@ const Contact = ({ setPage }: Props) => {
   };
 
   const handleSubmit = async (values: FormValues, { resetForm }: any) => {
+    setLoading(true);
     try {
       const result = await sendEmail(values);
       if (result.status === 200)
@@ -58,6 +60,8 @@ const Contact = ({ setPage }: Props) => {
         duration: 3000,
         isClosable: true,
       });
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -129,6 +133,8 @@ const Contact = ({ setPage }: Props) => {
                     _hover={{ bg: "#09a88d" }}
                     mt={4}
                     ml={4}
+                    isLoading={loading}
+                    loadingText="Sending..."
                   >
                     Send Message
                   </Button>
