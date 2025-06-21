@@ -22,22 +22,14 @@ const fadeIn = keyframes`
   to { opacity: 1; transform: translateY(0); }
 `;
 
-function extractDriveFileId(url: string): string | null {
-  const match = url.match(/\/d\/(.*?)(\/|$)/);
-  return match ? match[1] : null;
-}
-
 const About = ({ setPage }: Props) => {
   const [loading, setLoading] = useState(false);
 
   const downloadCV = () => {
     setLoading(true);
-    const fileId = extractDriveFileId(aboutMe.cvDriveLink);
-    if (!fileId) return;
-    const url = `https://drive.google.com/uc?export=download&id=${fileId}`;
     const link = document.createElement("a");
-    link.href = url;
-    link.setAttribute("download", "cv.pdf");
+    link.href = aboutMe.cvPath;
+    link.setAttribute("download", aboutMe.cvFileNameAfterDownload);
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -46,7 +38,7 @@ const About = ({ setPage }: Props) => {
 
   useEffect(() => {
     setPage("about.html");
-  }, []);
+  });
 
   return (
     <VStack
