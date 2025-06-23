@@ -81,7 +81,7 @@ const Home = ({ setPage }: Props) => {
             letterSpacing="wide"
             color={headingColor}
           >
-            KAREEM HAMOUDA
+            SITHIRA BUDDHIKA
           </Text>
           <Text
             fontSize={{ base: "lg", md: "xl" }}

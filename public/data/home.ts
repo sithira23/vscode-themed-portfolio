@@ -14,29 +14,29 @@ export const homeData = {
   contactInfo: [
     {
       Icon: IoMdMail,
-      Label: "kareem.e.hamouda@gmail.com",
+      Label: "sithirabuddhika@gmail.com",
       Link: "/contact", // This refers to the Contact page in the website, you can change it to whatever you like
     },
     {
       Icon: FaLocationDot,
-      Label: "Cairo, Egypt",
+      Label: "Homagama, Sri Lanka",
       Link: "https://www.google.com/maps/place/Cairo,+Cairo+Governorate/@30.0594885,31.2584644,13z", // This is just a simple location of my city
     },
     {
       Icon: FaPhoneAlt,
-      Label: "+20 115 111 9085",
-      Link: "tel:+201151119085",
+      Label: "+94 71 752 0287",
+      Link: "tel:+94717520287",
     },
   ],
   education: [
     {
       Icon: FaUniversity,
-      Label: "Ain Shams University",
+      Label: "SLIIT University",
       Link: "https://www.asu.edu.eg/",
     },
     {
       Icon: FaGraduationCap,
-      Label: "Bachelor's Degree in Computer Science",
+      Label: "Bachelor's Degree in Information Technology",
       Link: "https://cis.asu.edu.eg/",
     },
   ],
@@ -44,7 +44,7 @@ export const homeData = {
     {
       Icon: FaGithub,
       Label: "GitHub",
-      Link: "https://github.com/KareemEhab",
+      Link: "https://github.com/sithira23",
     },
     {
       Icon: FaLinkedin,

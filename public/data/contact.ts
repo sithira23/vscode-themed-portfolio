@@ -26,21 +26,21 @@ export const contactInfo = [
   {
     icon: FaGithub,
     label: "GitHub",
-    value: "github.com/KareemEhab",
+    value: "github.com/sithira23",
   },
   {
     icon: FaLinkedin,
     label: "LinkedIn",
-    value: "linkedin.com/in/kareem-hamouda",
+    value: "linkedin.com/in/sithira-buddhika",
   },
   {
     icon: FaFacebook,
     label: "Facebook",
-    value: "facebook.com/kareem.ehab.37",
+    value: "facebook.com/sithira.buddhika",
   },
   {
     icon: FaInstagram,
     label: "Instagram",
-    value: "instagram.com/kareem.ehabz",
+    value: "instagram.com/sithira.buddhika",
   },
 ];
